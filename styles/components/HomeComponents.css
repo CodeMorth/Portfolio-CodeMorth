@@ -1,0 +1,109 @@
+.HomeComponent {
+  @apply visible bg-[#000814] h-full min-h-[100vh] w-full flex flex-col-reverse justify-center p-[1.5rem] gap-[1.5rem];
+
+  @screen tablet {
+    @apply visible;
+  }
+
+  @screen laptop {
+    @apply visible;
+  }
+
+  .left-container {
+    @apply visible w-[100%] flex flex-col justify-center items-center;
+
+    @screen tablet {
+      @apply visible;
+    }
+
+    @screen laptop {
+      @apply visible;
+    }
+  }
+
+  .perfil-image-container {
+    @apply visible flex justify-center items-center w-[70%];
+
+    @screen tablet {
+      @apply visible;
+    }
+
+    @screen laptop {
+      @apply visible;
+    }
+  }
+
+  .logo-icons-container {
+    @apply visible flex w-full h-auto justify-between;
+
+    @screen tablet {
+      @apply visible;
+    }
+
+    @screen laptop {
+      @apply visible;
+    }
+  }
+
+  .linkedin-container,
+  .github-container,
+  .gmail-container {
+    @apply w-[15%] h-auto flex justify-center items-center;
+  }
+
+  .linkedin-container {
+    @apply visible;
+
+    @screen tablet {
+      @apply visible;
+    }
+
+    @screen laptop {
+      @apply visible;
+    }
+  }
+
+  .github-container {
+    @apply visible;
+
+    @screen tablet {
+      @apply visible;
+    }
+
+    @screen laptop {
+      @apply visible;
+    }
+  }
+
+  .gmail-container {
+    @apply visible;
+
+    @screen tablet {
+      @apply visible;
+    }
+
+    @screen laptop {
+      @apply visible;
+    }
+  }
+
+  .rigth-container {
+    @apply visible flex flex-col gap-[1rem];
+
+    h1 {
+      @apply font-semibold text-[2rem];
+    }
+
+    span {
+      @apply text-[#FFC300];
+    }
+
+    @screen tablet {
+      @apply visible;
+    }
+
+    @screen laptop {
+      @apply visible;
+    }
+  }
+}

@@ -1,7 +1,9 @@
+import HomeComponent from "../../components/HomeComponent";
+
 export default function Home() {
   return (
     <>
-    <div>Soy el Home</div>
+    <HomeComponent/>
     </>
   );
 }

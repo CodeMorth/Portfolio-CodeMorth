@@ -1,0 +1,47 @@
+.NavBar {
+  @apply visible bg-[#000814] flex;
+
+  @screen tablet {
+    @apply visible;
+  }
+
+  @screen laptop {
+    @apply visible;
+  }
+
+  .left-container {
+    @apply visible flex;
+
+    @screen tablet {
+      @apply visible;
+    }
+
+    @screen laptop {
+      @apply visible;
+    }
+  }
+
+  .codemorth-logo-container {
+    @apply visible;
+
+    @screen tablet {
+      @apply visible;
+    }
+
+    @screen laptop {
+      @apply visible;
+    }
+  }
+
+  .rigth-container {
+    @apply visible;
+
+    @screen tablet {
+      @apply visible;
+    }
+
+    @screen laptop {
+      @apply visible;
+    }
+  }
+}

@@ -1,6 +1,7 @@
+'use client'
 import "@/../styles/index.css";
-
-
+import  {LanguageProviderContext} from "../../Context/LanguageProvider";
+import { NavBar } from "../../components/NavBar";
 
 export default function RootLayout({
   children,
@@ -8,8 +9,13 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body>{children}</body>
+    <html lang="es">
+      <body>
+        <LanguageProviderContext>
+          <NavBar/>
+          {children}
+        </LanguageProviderContext>
+      </body>
     </html>
   );
 }

@@ -1,0 +1,9 @@
+{
+  "navbar": [
+    { "text": "Inicio", "ref": "/" },
+    { "text": "Proyectos", "ref": "/projects" },
+    { "text": "Tecnologías", "ref": "/technologies" },
+    { "text": "Experiencia", "ref": "/experience" }
+  ]
+}
+  

@@ -1,0 +1,8 @@
+{
+  "navbar": [
+    { "text": "Home", "ref": "/" },
+    { "text": "Projects", "ref": "/projects" },
+    { "text": "Technologies", "ref": "/technologies" },
+    { "text": "Experience", "ref": "/experience" }
+  ]
+}
