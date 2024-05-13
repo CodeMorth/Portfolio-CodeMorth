@@ -5,7 +5,7 @@ export const LanguageContext = createContext<any>({});
 
 export function LanguageProviderContext ({children}:any) {
   
-  const [typeLanguage, settypeLanguage] = useState("Spanish");
+  const [typeLanguage, settypeLanguage] = useState<boolean>(true);
 
   return (
     <LanguageContext.Provider value={{typeLanguage,settypeLanguage}}>

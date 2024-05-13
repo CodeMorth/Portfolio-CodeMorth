@@ -4,6 +4,11 @@
     { "text": "Proyectos", "ref": "/projects" },
     { "text": "Tecnologías", "ref": "/technologies" },
     { "text": "Experiencia", "ref": "/experience" }
-  ]
+  ],
+  "home": {
+    "h1": "Desarrollador",
+    "span1": "Front",
+    "span2": "End",
+    "p": "Me gusta ser detallista en los proyectos que desarrollo, buscando entregar el mejor producto posible."
+  }
 }
-  

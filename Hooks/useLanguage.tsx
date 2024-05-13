@@ -9,9 +9,9 @@ const {typeLanguage,settypeLanguage} = useContext(LanguageContext);
 
 let languageData;
 
-if(typeLanguage === "Spanish")languageData = languageSpanish;
+if(typeLanguage === true)languageData = languageSpanish;
 
-if(typeLanguage === "English")languageData = languageEnglish;
+if(typeLanguage === false)languageData = languageEnglish;
 
   return {typeLanguage,settypeLanguage,languageData}
 }
