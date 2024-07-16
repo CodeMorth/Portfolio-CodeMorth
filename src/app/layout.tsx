@@ -1,7 +1,7 @@
-'use client'
-import "@/../styles/index.css";
-import  {LanguageProviderContext} from "../../Context/LanguageProvider";
-import { NavBar } from "../../components/NavBar";
+import "@/styles/index.css";
+import { NavBar } from '@/components/Globals';
+import { LanguageProviderContext } from '@/Context';
+import { PrimeReactProvider } from "primereact/api";
 
 export default function RootLayout({
   children,
@@ -12,8 +12,10 @@ export default function RootLayout({
     <html lang="en">
       <body>
         <LanguageProviderContext>
-          <NavBar/>
-          {children}
+          <PrimeReactProvider>
+            <NavBar/>
+            <div className="children-container ">{children}</div>
+          </PrimeReactProvider>
         </LanguageProviderContext>
       </body>
     </html>

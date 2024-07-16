@@ -1,0 +1,15 @@
+{
+  "navbar": [
+    { "text": "Inicio", "ref": "/","left":-1,"width":9.3,"rotate":3},
+    { "text": "Proyectos", "ref": "/projects" ,"left":14.5,"width":16.1,"rotate":20},
+    { "text": "Tecnologías", "ref": "/technologies" ,"left":37.4,"width":18.3,"rotate":5},
+    { "text": "Contacto", "ref": "/contact" ,"left":62.3,"width":15,"rotate":20},
+    { "text": "Experiencia", "ref": "/experience" ,"left":84,"width":17,"rotate":5}
+  ],
+  "home": {
+    "h1": "Desarrollador",
+    "span1": "Front",
+    "span2": "End",
+    "p": "Me gusta ser detallista en los proyectos que desarrollo, buscando entregar el mejor producto posible."
+  }
+}

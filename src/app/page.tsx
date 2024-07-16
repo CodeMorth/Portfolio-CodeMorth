@@ -1,9 +1,11 @@
-import HomeComponent from "../../components/HomeComponent";
+import { Container, HomeComponent } from "@/components/Globals"
 
 export default function Home() {
   return (
     <>
-    <HomeComponent/>
+      <Container>
+        <HomeComponent />
+      </Container>
     </>
-  );
+  )
 }

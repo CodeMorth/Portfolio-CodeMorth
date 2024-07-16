@@ -1,0 +1,15 @@
+html{
+
+    .children-container{
+
+        @apply pt-[5rem] ;
+
+        @screen tablet{
+
+            @apply pt-0 ;
+
+        }
+
+    }
+
+}

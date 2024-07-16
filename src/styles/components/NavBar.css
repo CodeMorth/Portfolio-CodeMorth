@@ -1,0 +1,211 @@
+.codemorth-logo-container-movil-navbar {
+  @apply absolute right-2 top-3 w-[5rem] h-auto z-20;
+
+  @screen tablet {
+    @apply hidden;
+  }
+}
+
+.NavBar {
+  @apply absolute right-0 z-10 w-full h-auto flex justify-end;
+
+  @screen tablet {
+    @apply justify-between h-[6rem] px-7;
+  }
+
+  @screen laptop{
+
+    @apply  px-20 ;
+
+  }
+
+  .navbar-container {
+    @apply flex flex-col justify-start bg-[#000814] min-h-screen py-10 overflow-hidden;
+
+    @screen tablet {
+      @apply flex-row min-h-[auto] gap-[2rem] justify-between items-center overflow-visible;
+    }
+  }
+
+  .navbar-container.open {
+    @apply w-[80%] max-w-[18.5rem]  h-[100%]  pl-[2.5rem];
+
+    transition: 0.5s ease;
+
+    @screen tablet {
+      @apply h-auto p-0 max-w-full w-full;
+    }
+
+    @screen laptop {
+      @apply visible;
+    }
+  }
+
+  .navbar-container.close {
+    @apply w-0 max-w-[18.5rem]  h-[100%];
+
+    transition: 0.5s ease;
+
+    @screen tablet {
+      @apply h-auto p-0 max-w-full w-full;
+    }
+
+    @screen laptop {
+      @apply visible;
+    }
+  }
+
+  .container-switch-logo {
+    @screen tablet {
+      @apply flex flex-row-reverse w-auto justify-between;
+    }
+  }
+
+  .switch-container {
+    @apply flex  items-center gap-[0.7rem] font-semibold;
+
+    @screen tablet{
+
+      @apply absolute left-9  top-24;
+
+    }
+
+    @screen laptop{
+
+      @apply static ;
+
+    }
+
+    h1 {
+      @apply text-[1.2rem];
+    }
+
+    .active {
+      @apply text-[#FFC300];
+    }
+  }
+
+  .switch-container,
+  .active {
+    @apply flex  items-center gap-[0.7rem];
+
+    h1 {
+      @apply text-[1.2rem];
+    }
+  }
+
+  .switch {
+    @apply w-[3.8rem] h-[2rem] bg-[white] flex justify-start rounded-[5rem] p-[0.4rem] cursor-pointer;
+  }
+
+  .switch[data-on="true"] {
+    @apply justify-end;
+  }
+
+  .handle {
+    @apply w-[1.4rem] h-full bg-[#FFC300] rounded-[0.6rem];
+  }
+
+  .left-container {
+    @apply visible flex w-0;
+
+    @screen tablet {
+      @apply visible w-auto flex justify-center items-center mr-5;
+    }
+
+    @screen laptop {
+      @apply visible gap-3;
+    }
+
+    p {
+      @apply w-0 overflow-hidden text-[1.3rem] font-semibold;
+
+      @screen tablet {
+        @apply w-auto;
+      }
+    }
+
+    span {
+      @apply text-[#FFC300];
+    }
+  }
+
+  .codemorth-logo-container-laptop {
+    @apply w-[3.5rem];
+  }
+
+  .codemorth-logo-container-movil {
+    @apply visible;
+
+    @screen tablet {
+      @apply visible;
+    }
+
+    @screen laptop {
+      @apply visible;
+    }
+  }
+
+  .rigth-container {
+
+    @apply flex flex-col overflow-hidden relative gap-3 ;
+
+    @screen tablet {
+      @apply flex-row overflow-visible gap-5;
+    }
+
+    @screen laptop {
+      @apply visible;
+
+      gap: calc(5rem *var(--scale))
+
+
+    }
+
+    a {
+      @apply text-[1.3rem] font-semibold ;
+
+      @screen tablet{
+
+        @apply font-normal text-center ;
+
+      }
+
+      @screen laptop{
+
+        @apply text-[1.5rem] ;
+
+      }
+
+    }
+  }
+
+    /* Line NavBar */
+
+    .highlight-line {
+      @screen tablet {
+        @apply bottom-3 h-[0.2rem] absolute bg-[#FFC300] z-auto rotate-[-12deg];
+      }
+  
+      transition: left 0.3s ease, width 0.3s ease, rotate 0.3s ease;
+    }
+
+}
+
+.NavBar.open {
+  @apply w-[100%];
+
+  transition: 0.5s ease;
+}
+
+.NavBar.close {
+  @apply w-0;
+
+  transition: 0.5s ease;
+
+  @screen tablet {
+    @apply w-full;
+  }
+
+
+}

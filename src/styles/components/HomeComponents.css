@@ -1,8 +1,8 @@
 .HomeComponent {
-  @apply visible bg-[#000814] h-full min-h-[100vh] w-full flex flex-col-reverse justify-center p-[1.5rem] gap-[1.5rem];
+  @apply bg-[#000814] h-full w-full flex flex-col-reverse justify-end px-[1.5rem] gap-[1.5rem];
 
   @screen tablet {
-    @apply visible;
+    @apply flex-row justify-center items-center min-h-screen;
   }
 
   @screen laptop {
@@ -13,7 +13,7 @@
     @apply visible w-[100%] flex flex-col justify-center items-center;
 
     @screen tablet {
-      @apply visible;
+      @apply w-auto;
     }
 
     @screen laptop {
@@ -29,7 +29,7 @@
     }
 
     @screen laptop {
-      @apply visible;
+      width: calc(37rem * var(--scale));
     }
   }
 
@@ -41,7 +41,7 @@
     }
 
     @screen laptop {
-      @apply visible;
+      @apply w-auto;
     }
   }
 
@@ -90,20 +90,43 @@
   .rigth-container {
     @apply visible flex flex-col gap-[1rem];
 
+    @screen tablet {
+      @apply visible;
+    }
+
+    @screen laptop {
+      width: calc(40rem * var(--scale));
+    }
+
     h1 {
       @apply font-semibold text-[2rem];
+
+      @screen tablet {
+        @apply text-[4rem];
+      }
+
+      @screen laptop {
+        font-size: calc(6rem * var(--scale));
+      }
     }
 
     span {
       @apply text-[#FFC300];
     }
 
-    @screen tablet {
-      @apply visible;
-    }
+    p {
+      @apply text-[1rem];
 
-    @screen laptop {
-      @apply visible;
+      @screen tablet {
+        @apply text-[1.4rem];
+      }
+
+      @screen laptop{
+
+        font-size: calc(1.5rem *var(--scale));
+
+      }
+
     }
   }
 }

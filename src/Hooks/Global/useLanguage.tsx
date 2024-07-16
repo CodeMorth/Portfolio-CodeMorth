@@ -1,9 +1,9 @@
 import { useContext } from 'react';
-import languageEnglish from "@/../Language/languageEnglish.json"
-import languageSpanish from "@/../Language/languageSpanish.json"
-import { LanguageContext } from '../Context/LanguageProvider';
+import languageEnglish from "@/Language/languageEnglish.json"
+import languageSpanish from "@/Language/languageSpanish.json"
+import { LanguageContext } from '../../Context/LanguageProvider';
 
-const useLanguage = () => {
+export const useLanguage = () => {
 
 const {typeLanguage,settypeLanguage} = useContext(LanguageContext);
 
@@ -16,4 +16,3 @@ if(typeLanguage === false)languageData = languageEnglish;
   return {typeLanguage,settypeLanguage,languageData}
 }
 
-export default useLanguage
