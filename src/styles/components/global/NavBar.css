@@ -10,20 +10,19 @@
   @apply absolute right-0 z-10 w-full h-auto flex justify-end;
 
   @screen tablet {
-    @apply justify-between h-[6rem] px-7;
+    @apply justify-between h-[6rem] px-10;
   }
 
-  @screen laptop{
-
-    @apply  px-20 ;
-
+  @screen laptop {
+    padding-right: calc(6rem * var(--scale));
+    padding-left: calc(6rem * var(--scale));
   }
 
   .navbar-container {
-    @apply flex flex-col justify-start bg-[#000814] min-h-screen py-10 overflow-hidden;
+    @apply flex flex-col justify-start bg-[#000814] min-h-screen overflow-hidden pt-8;
 
     @screen tablet {
-      @apply flex-row min-h-[auto] gap-[2rem] justify-between items-center overflow-visible;
+      @apply flex-row min-h-[auto] gap-[0rem] justify-between items-center overflow-visible pt-0;
     }
   }
 
@@ -64,16 +63,12 @@
   .switch-container {
     @apply flex  items-center gap-[0.7rem] font-semibold;
 
-    @screen tablet{
-
-      @apply absolute left-9  top-24;
-
+    @screen tablet {
+      @apply absolute left-12  top-24;
     }
 
-    @screen laptop{
-
-      @apply static ;
-
+    @screen laptop {
+      @apply static;
     }
 
     h1 {
@@ -147,49 +142,46 @@
   }
 
   .rigth-container {
-
-    @apply flex flex-col overflow-hidden relative gap-3 ;
+    @apply flex flex-col overflow-hidden relative gap-3;
 
     @screen tablet {
-      @apply flex-row overflow-visible gap-5;
+      @apply flex-row overflow-visible gap-0;
     }
-
+    /* 
     @screen laptop {
       @apply visible;
 
       gap: calc(5rem *var(--scale))
 
 
-    }
+    } */
 
     a {
-      @apply text-[1.3rem] font-semibold ;
+      @apply text-[1.3rem] font-semibold;
 
-      @screen tablet{
-
-        @apply font-normal text-center ;
-
+      @screen tablet {
+        @apply font-normal text-center p-2;
       }
 
-      @screen laptop{
-
-        @apply text-[1.5rem] ;
-
+      @screen laptop {
+        font-size: calc(max(1.3rem, 1.55rem * var(--scale)));
+        padding-left: calc(3rem * var(--scale));
+        padding-right: calc(3rem * var(--scale));
       }
-
     }
   }
 
-    /* Line NavBar */
+  /* Line NavBar */
 
-    .highlight-line {
-      @screen tablet {
-        @apply bottom-3 h-[0.2rem] absolute bg-[#FFC300] z-auto rotate-[-12deg];
-      }
-  
-      transition: left 0.3s ease, width 0.3s ease, rotate 0.3s ease;
+  .highlight-line {
+    @screen tablet {
+      @apply absolute bg-[#FFC300] z-auto rotate-[-12deg] pointer-events-none;
     }
 
+    transition: left 0.3s ease-in-out, width 0.3s ease, height 0.13s ease-in-out,
+      rotate 0.3s ease-in-out, transform 0.13s ease-in-out,
+      bottom 0.13s ease-in-out;
+  }
 }
 
 .NavBar.open {
@@ -206,6 +198,4 @@
   @screen tablet {
     @apply w-full;
   }
-
-
 }

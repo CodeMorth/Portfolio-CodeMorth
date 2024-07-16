@@ -1,19 +1,19 @@
 .HomeComponent {
-  @apply bg-[#000814] h-full w-full flex flex-col-reverse justify-end px-[1.5rem] gap-[1.5rem];
+  @apply bg-[#000814] h-full w-full flex flex-col-reverse justify-end gap-[2rem];
 
   @screen tablet {
-    @apply flex-row justify-center items-center min-h-screen;
+    @apply flex-row justify-center items-center min-h-screen gap-[3rem];
   }
 
   @screen laptop {
-    @apply visible;
+    gap: calc(10rem * var(--scale));
   }
 
   .left-container {
-    @apply visible w-[100%] flex flex-col justify-center items-center;
+    @apply visible w-[100%] flex flex-col justify-center items-center max-w-[25rem] m-auto;
 
     @screen tablet {
-      @apply w-auto;
+      @apply w-auto m-0;
     }
 
     @screen laptop {
@@ -22,10 +22,10 @@
   }
 
   .perfil-image-container {
-    @apply visible flex justify-center items-center w-[70%];
+    @apply visible flex justify-center items-center w-[70%] max-w-96;
 
     @screen tablet {
-      @apply visible;
+      @apply min-w-60 w-full max-w-[35rem];
     }
 
     @screen laptop {
@@ -43,6 +43,18 @@
     @screen laptop {
       @apply w-auto;
     }
+
+    img{
+
+      @screen laptop{
+
+        width: calc(10rem *var(--scale));
+
+
+      }
+
+    }
+
   }
 
   .linkedin-container,
@@ -91,11 +103,12 @@
     @apply visible flex flex-col gap-[1rem];
 
     @screen tablet {
-      @apply visible;
+      @apply max-w-[28rem];
     }
 
     @screen laptop {
       width: calc(40rem * var(--scale));
+      max-width: calc(40rem * var(--scale));
     }
 
     h1 {
@@ -121,12 +134,9 @@
         @apply text-[1.4rem];
       }
 
-      @screen laptop{
-
-        font-size: calc(1.5rem *var(--scale));
-
+      @screen laptop {
+        font-size: calc(max(1.2rem,1.5rem * var(--scale)));
       }
-
     }
   }
 }

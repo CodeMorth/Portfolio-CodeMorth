@@ -1,5 +1,5 @@
 import "@/styles/index.css";
-import { NavBar } from '@/components/Globals';
+import { NavBar } from '@/components/global';
 import { LanguageProviderContext } from '@/Context';
 import { PrimeReactProvider } from "primereact/api";
 
@@ -9,7 +9,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="es">
       <body>
         <LanguageProviderContext>
           <PrimeReactProvider>

@@ -1,39 +1,21 @@
-.principal-container{
+:root{
 
-  
+  @apply text-[white] bg-[#000814] ;
 
 }
 
+.main-page {
+  animation-name: fadeIn;
+  animation-duration: 0.6s;
+  animation-timing-function: ease-in;
+  background-image: var(--bg-img);
+}
 
-/*Animation SVG MiduDev*/
-
-#SVGCreationAnimation {
-    fill-opacity: 0;
-    stroke-dasharray: 1300;
-    stroke-dashoffset: 1300;
-    animation: dash 2s ease-in-out forwards;
-    stroke-width: 20;
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
   }
-  
-  @keyframes dash {
-    70% {
-      fill-opacity: 0;
-      stroke-width: 15;
-    }
-  
-    85% {
-      stroke-width: 10;
-    }
-  
-    95% {
-      stroke-width: 5;
-    }
-  
-    100% {
-      fill-opacity: 100%;
-      stroke-dashoffset: 0;
-      stroke-width: 0;
-    }
+  100% {
+    opacity: 1;
   }
-  
-  /*Animation SVG MiduDev*/
+}

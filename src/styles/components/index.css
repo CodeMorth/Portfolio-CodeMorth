@@ -1,2 +1,2 @@
-@import './HomeComponents.css';
-@import './NavBar.css';
+@import './global/';
+@import './page/';

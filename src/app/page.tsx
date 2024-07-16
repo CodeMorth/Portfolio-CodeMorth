@@ -1,4 +1,5 @@
-import { Container, HomeComponent } from "@/components/Globals"
+import { Container } from "@/components/global"
+import { HomeComponent } from '@/components/page'
 
 export default function Home() {
   return (

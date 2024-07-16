@@ -7,24 +7,3 @@
 @tailwind utilities;
 
 
-:root{
-
-    @apply text-[white] bg-[#000814] ;
-
-}
-
-.main-page {
-    animation-name: fadeIn;
-    animation-duration: 0.6s;
-    animation-timing-function: ease-in;
-    background-image: var(--bg-img);
-  }
-
-  @keyframes fadeIn {
-    0% {
-      opacity: 0;
-    }
-    100% {
-      opacity: 1;
-    }
-  }
