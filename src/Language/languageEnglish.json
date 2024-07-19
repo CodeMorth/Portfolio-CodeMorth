@@ -1,10 +1,10 @@
 {
   "navbar": [
-    { "text": "Home", "ref": "/","left":2.6,"width":10.9,"rotate":5 },
-    { "text": "Experience", "ref": "/experience","left":19,"width":17.1,"rotate":-5 },
-    { "text": "Projects", "ref": "/projects","left":40,"width":14.8,"rotate":5},
-    { "text": "Technologies", "ref": "/technologies" ,"left":59.5,"width":19.5,"rotate":-5},
-    { "text": "Contact", "ref": "/contact","left":83,"width":15,"rotate":5 }
+    { "text": "Home", "ref": "/","leftLine":2.6,"widthLine":10.9,"rotateLine":5 },
+    { "text": "Experience", "ref": "/experience","leftLine":19,"widthLine":17.1,"rotateLine":-5 },
+    { "text": "Projects", "ref": "/projects","leftLine":40,"widthLine":14.8,"rotateLine":5},
+    { "text": "Technologies", "ref": "/technologies" ,"leftLine":59.5,"widthLine":19.5,"rotateLine":-5},
+    { "text": "Contact", "ref": "/contact","leftLine":83,"widthLine":15,"rotateLine":5 }
   ],
   "home": {
     "h1": "Developer",

@@ -1,8 +1,13 @@
-import React from 'react'
+import { Container } from '@/components/global'
+import { ExperienceHome } from '@/components/page/experience'
 
 const page = () => {
   return (
-    <div>page</div>
+    <>
+      <Container>
+        <ExperienceHome />
+      </Container>
+    </>
   )
 }
 
