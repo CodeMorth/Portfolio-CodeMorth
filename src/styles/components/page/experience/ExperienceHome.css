@@ -1,0 +1,36 @@
+.ExperienceHome{
+
+    
+
+    @screen laptop{
+
+        @apply min-h-screen flex flex-col items-center justify-center;
+
+        gap: calc(3.5rem * var(--scale));
+
+    }
+
+    h1{
+
+        @screen laptop{
+
+            @apply font-bold text-[#FFC300];
+            font-size: calc(5.4rem *var(--scale));  
+
+        }
+
+    }
+
+    .experienceCard-container{
+
+        @screen laptop{
+
+            @apply flex ;
+
+            gap: calc(12rem *var(--scale));
+
+        }
+
+    }
+
+}

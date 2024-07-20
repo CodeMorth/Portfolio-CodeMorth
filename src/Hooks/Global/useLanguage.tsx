@@ -1,19 +1,20 @@
-import { useContext } from 'react';
-import languageEnglish from "@/Language/languageEnglish.json"
-import languageSpanish from "@/Language/languageSpanish.json"
-import { LanguageContext } from '../../Context/LanguageProvider';
-import { LanguageType } from '@/interface/Language';
+import { useContext } from 'react'
+import { LanguageContext } from '@/Context/LanguageProvider'
+import PackLanguage from '@/Language/PackLanguage.json'
+import { DataLanguageType } from '@/interface/Language'
 
 export const useLanguage = () => {
+  const { typeLanguage, settypeLanguage } = useContext(LanguageContext)
 
-const {typeLanguage,settypeLanguage} = useContext(LanguageContext);
+  let languageData
 
-let languageData;
+  if (typeLanguage === true)languageData = PackLanguage.Spanish as DataLanguageType
 
-if(typeLanguage === true)languageData = languageSpanish as LanguageType;
+  if (typeLanguage === false)languageData = PackLanguage.English as DataLanguageType
 
-if(typeLanguage === false)languageData = languageEnglish as LanguageType;
+  const changeLanguage = () => {
+    settypeLanguage((prev: boolean) => !prev)
+  }
 
-  return {typeLanguage,settypeLanguage,languageData}
+  return { typeLanguage, changeLanguage, languageData }
 }
-

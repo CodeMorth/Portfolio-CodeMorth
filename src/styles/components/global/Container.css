@@ -2,9 +2,19 @@
 
     @apply flex items-center justify-center px-6 w-auto h-auto ;
 
-    @screen tablet{
 
-        @apply px-12  ;
+    @screen tablet {
+
+        @apply  px-10;
+
+    }
+
+    @screen laptop{
+
+        
+
+        padding-right: calc(6rem* var(--scale));
+        padding-left: calc(6rem* var(--scale));
 
     }
 

@@ -1,20 +1,14 @@
 'use client'
 import Link from 'next/link'
-import React, { useState } from 'react'
 import Image from 'next/image'
 import { motion } from 'framer-motion'
-import { useLanguage, ViewNavBarGlobal } from '@/Hooks/Global'
-import { lineDataType } from '@/interface/NavBar'
-import { LanguageNavbar } from '@/interface/Language'
-import { ChangeData } from '@/Utilities/NavBar/ChangeData'
+import { useDataNavBar, useLanguage, ViewNavBarGlobal } from '@/Hooks/Global'
+import { NavbarLanguageType } from '@/interface/Language'
 
 export const NavBar = () => {
-  const { languageData, settypeLanguage } = useLanguage()
+  const { languageData, changeLanguage } = useLanguage()
   const { openNavBar, setopenNavBar } = ViewNavBarGlobal()
-  const [isOn, setIsOn] = useState<boolean>(false)
-  const [linePresioned, setlinePresioned] = useState<boolean>(false)
-  const [lineData, setlineData] = useState<lineDataType>({leftLine: 3,widthLine: 9.3,rotateLine: 3})
-  const [lineBackup, setlineBackup] = useState<lineDataType>({leftLine: 3,widthLine: 9.3,rotateLine: 3})
+  const { dataNavBar, editBoolean, editLineData } = useDataNavBar()
 
   return (
     <>
@@ -41,12 +35,13 @@ export const NavBar = () => {
         >
           <div className="container-switch-logo">
             <div className="switch-container">
-              <h1 className={isOn ? '' : 'active'}>Es</h1>
+              <h1 className={dataNavBar.isOn ? '' : 'active'}>Es</h1>
               <div
                 className="switch"
-                data-on={isOn}
+                data-on={dataNavBar.isOn}
                 onClick={() => {
-                  setIsOn(!isOn), settypeLanguage((prev: boolean) => !prev)
+                  editBoolean('isOn', 'opposite'),
+                  changeLanguage()
                 }}
               >
                 <motion.div
@@ -59,7 +54,7 @@ export const NavBar = () => {
                   }}
                 />
               </div>
-              <h1 className={isOn ? 'active' : ''}>En</h1>
+              <h1 className={dataNavBar.isOn ? 'active' : ''}>En</h1>
             </div>
             <div className="left-container">
               <div className="codemorth-logo-container-laptop">
@@ -75,36 +70,40 @@ export const NavBar = () => {
               </p>
             </div>
           </div>
-          <div className="rigth-container">
-            {languageData?.navbar?.map((data: LanguageNavbar, index: number) => (
+          <nav className="rigth-container">
+            {languageData?.navbarLanguage?.map(
+              (data: NavbarLanguageType, index: number) => (
                 <Link
                   key={index}
-                  onClick={() => ChangeData( data ,setlineData,setlineBackup)}
-                  onMouseEnter={() =>ChangeData( data ,setlineData)}
+                  onClick={() => {
+                    editLineData('lineBackup', data),
+                    editLineData('lineData', data)
+                  }}
+                  onMouseEnter={() => editLineData('lineData', data)}
                   onMouseLeave={() => (
-                    ChangeData( lineBackup ,setlineData),
-                    setlinePresioned(false)
+                    editLineData('dataWithBackup'),
+                    editBoolean('linePresioned', 'false')
                   )}
-                  onMouseDown={() => setlinePresioned(true)}
-                  onMouseUp={() => setlinePresioned(false)}
+                  onMouseDown={() => editBoolean('linePresioned', 'true')}
+                  onMouseUp={() => editBoolean('linePresioned', 'false')}
                   href={data?.ref}
                 >
                   {data?.text}
                 </Link>
               )
-)}
+            )}
             <div
               className="highlight-line"
               style={{
-                left: `${lineData.leftLine}%`,
-                width: `${lineData.widthLine}%`,
-                rotate: `${lineData.rotateLine}deg`,
-                height: `${linePresioned ? '0.4rem' : '0.2rem'}`,
-                transform: `${linePresioned ? 'scale(0.5)' : 'scale(1)'}`,
-                bottom: `${linePresioned ? '1.25rem' : '1.4rem'}`
+                left: `${dataNavBar.lineData.leftLine}%`,
+                width: `${dataNavBar.lineData.widthLine}%`,
+                rotate: `${dataNavBar.lineData.rotateLine}deg`,
+                height: `${dataNavBar.linePresioned ? '0.4rem' : '0.2rem'}`,
+                transform: `${dataNavBar.linePresioned ? 'scale(0.5)' : 'scale(1)'}`,
+                bottom: `${dataNavBar.linePresioned ? '1.25rem' : '1.4rem'}`
               }}
             />
-          </div>
+          </nav>
         </div>
       </div>
     </>

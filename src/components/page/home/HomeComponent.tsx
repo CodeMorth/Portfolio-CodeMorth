@@ -8,7 +8,7 @@ export const HomeComponent = () => {
   const { languageData } = useLanguage()
   const { setopenNavBar } = ViewNavBarGlobal()
 
-  const text = languageData?.home
+  const text = languageData?.homeLanguage
 
   return (
     <main className="HomeComponent main-page">

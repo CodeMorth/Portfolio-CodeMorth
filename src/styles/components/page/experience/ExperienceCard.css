@@ -1,0 +1,66 @@
+.ExperienceCard {
+  @apply visible;
+
+  @screen tablet {
+    @apply visible;
+  }
+
+  @screen laptop {
+    @apply flex flex-col justify-between items-center  ;
+    width: calc(37rem * var(--scale));
+    height: calc(35rem * var(--scale));
+
+  }
+
+  h2 {
+    @apply visible;
+
+    @screen tablet {
+      @apply visible;
+    }
+
+    @screen laptop {
+      font-size: calc(3.3rem *var(--scale));
+    }
+  }
+
+  h3 {
+    @apply text-[#FFC300];
+
+    @screen tablet {
+      @apply visible;
+    }
+
+    @screen laptop {
+      font-size: calc(1.7rem *var(--scale));
+    }
+  }
+
+  .image-container {
+    @apply visible;
+
+    @screen tablet {
+      @apply visible;
+    }
+
+    @screen laptop {
+      @apply w-[17rem] h-auto;
+    }
+  }
+
+  p {
+    @apply visible;
+
+    @screen tablet {
+      @apply visible;
+    }
+
+    @screen laptop {
+
+      @apply font-light leading-7 ;
+
+      font-size: calc(1.3rem *var(--scale));
+
+    }
+  }
+}

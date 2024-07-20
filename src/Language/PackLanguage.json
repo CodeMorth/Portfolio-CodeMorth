@@ -1,0 +1,130 @@
+{
+  "English": {
+    "navbarLanguage": [
+      {
+        "text": "Home",
+        "ref": "/",
+        "leftLine": 2.6,
+        "widthLine": 10.9,
+        "rotateLine": 5
+      },
+      {
+        "text": "Experience",
+        "ref": "/experience",
+        "leftLine": 19,
+        "widthLine": 17.1,
+        "rotateLine": -5
+      },
+      {
+        "text": "Projects",
+        "ref": "/projects",
+        "leftLine": 40,
+        "widthLine": 14.8,
+        "rotateLine": 5
+      },
+      {
+        "text": "Technologies",
+        "ref": "/technologies",
+        "leftLine": 59.5,
+        "widthLine": 19.5,
+        "rotateLine": -5
+      },
+      {
+        "text": "Contact",
+        "ref": "/contact",
+        "leftLine": 83,
+        "widthLine": 15,
+        "rotateLine": 5
+      }
+    ],
+    "homeLanguage": {
+      "h1": "Developer",
+      "span1": "Front",
+      "span2": "End",
+      "p": "I like to be detail-oriented in the projects I develop, striving to deliver the best possible product."
+    },
+    "experienceLanguage": {
+      "title": "EXPERIENCE",
+      "experienceCardLanguage": [
+        {
+          "title": "Freelancer",
+          "subtitle": "January 2023-2024",
+          "src": "/FreelanceLogoBgYellow.svg",
+          "alt": "Logo of CodeMorth Freelance",
+          "description": "I have worked independently in web development, collaborating with clients in my local area. Through this experience, I have gradually acquired knowledge."
+        },
+        {
+          "title": "Diurvan Consultants",
+          "subtitle": "January 2023-Present",
+          "src": "/DiurvanLogo.svg",
+          "alt": "Logo of Diurvan Consultants",
+          "description": "As a Front-End Developer at Diurvan Consultants, I address client requirements on websites. I use TypeScript, React.js, and CSS, collaborating on projects from start to final delivery, employing Git and GitHub for collaboration."
+        }
+      ]
+    }
+  },
+  "Spanish": {
+    "navbarLanguage": [
+      {
+        "text": "Inicio",
+        "ref": "/",
+        "leftLine": 3.3,
+        "widthLine": 9,
+        "rotateLine": 5
+      },
+      {
+        "text": "Experiencia",
+        "ref": "/experience",
+        "leftLine": 17.6,
+        "widthLine": 17.8,
+        "rotateLine": -5
+      },
+      {
+        "text": "Proyectos",
+        "ref": "/projects",
+        "leftLine": 38.9,
+        "widthLine": 16.9,
+        "rotateLine": 5
+      },
+      {
+        "text": "Tecnologías",
+        "ref": "/technologies",
+        "leftLine": 59.9,
+        "widthLine": 19,
+        "rotateLine": -5
+      },
+      {
+        "text": "Contacto",
+        "ref": "/contact",
+        "leftLine": 82,
+        "widthLine": 16,
+        "rotateLine": 5
+      }
+    ],
+    "homeLanguage": {
+      "h1": "Desarrollador",
+      "span1": "Front",
+      "span2": "End",
+      "p": "Me gusta ser detallista en los proyectos que desarrollo, buscando entregar el mejor producto posible."
+    },
+    "experienceLanguage": {
+      "title": "EXPERIENCIA",
+      "experienceCardLanguage": [
+        {
+          "title": "Freelancer",
+          "subtitle": "Enero 2023-2024",
+          "src": "/FreelanceLogoBgYellow.svg",
+          "alt": "Logo de CodeMorth Freelance",
+          "description": "He trabajado de forma autónoma en el desarrollo de páginas web, colaborando con clientes ubicados en mi área local. A través de esta experiencia, he ido adquiriendo conocimientos gradualmente."
+        },
+        {
+          "title": "Diurvan Consultores",
+          "subtitle": "Enero 2023-Actualidad",
+          "src": "/DiurvanLogo.svg",
+          "alt": "Logo de la consultora Diurvan",
+          "description": "Como Programador Front-End en Diurvan Consultores, resuelvo requerimientos de clientes en sitios web. Uso TypeScript, React.js y CSS, colaborando en proyectos desde inicio hasta entrega final, empleando Git y GitHub para colaboración."
+        }
+      ]
+    }
+  }
+}

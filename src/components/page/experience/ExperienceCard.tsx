@@ -16,13 +16,13 @@ export const ExperienceCard = ({
   description
 }: ExperienceCardProps) => {
   return (
-    <>
-      <div>{title}</div>
-      <div>{subtitle}</div>
-      <div>
-        <Image alt={alt} src={src} />
+    <article className="ExperienceCard">
+      <h2>{title}</h2>
+      <h3>{subtitle}</h3>
+      <div className="image-container">
+        <Image alt={alt} src={src} width={1000} height={1000} />
       </div>
-      <div>{description}</div>
-    </>
+      <p>{description}</p>
+    </article>
   )
 }
