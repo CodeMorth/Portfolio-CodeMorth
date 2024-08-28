@@ -1,5 +1,5 @@
 .codemorth-logo-container-movil-navbar {
-  @apply absolute right-2 top-3 w-[5rem] h-auto z-20;
+  @apply fixed right-2 top-3 w-[5rem] h-auto z-20;
 
   @screen tablet {
     @apply hidden;
@@ -7,7 +7,7 @@
 }
 
 .NavBar {
-  @apply absolute right-0 z-10 w-full h-auto flex justify-end;
+  @apply fixed right-0 z-10 w-full h-auto flex justify-end;
 
   @screen tablet {
     @apply justify-between h-[6rem] px-10;

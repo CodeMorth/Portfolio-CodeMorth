@@ -1,6 +1,12 @@
 .ExperienceHome{
 
-    
+    @apply flex flex-col gap-6 pt-24 ;
+
+    @screen tablet{
+
+        @apply pt-0 ;
+
+    }
 
     @screen laptop{
 
@@ -12,9 +18,11 @@
 
     h1{
 
+        @apply font-bold text-[#FFC300] text-5xl text-center ;
+
+
         @screen laptop{
 
-            @apply font-bold text-[#FFC300];
             font-size: calc(5.4rem *var(--scale));  
 
         }
@@ -22,10 +30,11 @@
     }
 
     .experienceCard-container{
+        @apply flex flex-col gap-10 ;
+
 
         @screen laptop{
 
-            @apply flex ;
 
             gap: calc(12rem *var(--scale));
 
