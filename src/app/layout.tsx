@@ -10,7 +10,7 @@ interface RootLayoutProps {
 export default function RootLayout({ children }: RootLayoutProps) {
   return (
     <html lang="es">
-      <body>
+      <body className='h-full'>
         <LanguageProviderContext>
           <PrimeReactProvider>            
               <NavBar />

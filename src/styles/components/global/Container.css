@@ -1,6 +1,6 @@
 .principal-container{
 
-    @apply flex items-center justify-center px-6 w-auto h-auto ;
+    @apply flex items-center justify-center px-6 w-auto h-full ;
 
 
     @screen tablet {

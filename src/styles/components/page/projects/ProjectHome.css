@@ -1,5 +1,5 @@
-.ExperienceHome {
-  @apply flex flex-col gap-6 pt-24 w-full;
+.ProjectHome {
+  @apply flex flex-col gap-6 pt-24 w-full h-full;
 
   @screen tablet {
     @apply justify-start items-center;
@@ -19,15 +19,11 @@
     }
   }
 
-  .experienceCard-container {
-    @apply flex flex-col justify-around gap-10 w-full;
-
-    @screen tablet {
-      @apply flex-row;
-    }
+  .projectCard-container {
+    @apply flex justify-around gap-10 w-full h-full;
 
     @screen laptop {
-      @apply justify-center;
+      @apply justify-center items-center;
 
       gap: calc(12rem * var(--scale));
     }

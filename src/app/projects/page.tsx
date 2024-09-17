@@ -1,8 +1,12 @@
+import { Container } from '@/components/global'
+import { ProjectHome } from '@/components/page/projects'
 import React from 'react'
 
 const page = () => {
   return (
-    <div>page</div>
+    <Container>
+      <ProjectHome />
+    </Container>
   )
 }
 
