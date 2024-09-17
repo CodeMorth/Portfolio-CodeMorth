@@ -1,18 +1,24 @@
 .ProjectHome {
-  @apply flex flex-col gap-6 pt-24 w-full h-full;
+  @apply flex flex-col gap-20 w-full h-full pt-24 ;
 
   @screen tablet {
-    @apply justify-start items-center;
+    @apply justify-center items-center gap-36;
   }
 
   @screen laptop {
-    @apply min-h-screen flex flex-col items-center justify-center;
+    @apply min-h-screen flex flex-col items-center justify-center pt-0  overflow-hidden;
 
-    gap: calc(3.5rem * var(--scale));
+    padding-top: calc(10.5rem * var(--scale));
+
+    gap: calc(10.5rem * var(--scale));
   }
 
   h1 {
-    @apply font-bold text-[#FFC300] text-5xl text-center;
+    @apply font-bold text-[#FFC300] text-6xl text-center;
+
+    @screen tablet {
+      @apply text-7xl;
+    }
 
     @screen laptop {
       font-size: calc(5.4rem * var(--scale));
@@ -20,12 +26,16 @@
   }
 
   .projectCard-container {
-    @apply flex justify-around gap-10 w-full h-full;
+    @apply flex flex-col justify-center items-center gap-32 w-full pb-36;
+
+    @screen tablet {
+      @apply flex-row;
+    }
 
     @screen laptop {
       @apply justify-center items-center;
 
-      gap: calc(12rem * var(--scale));
+      gap: calc(25rem * var(--scale));
     }
   }
 }

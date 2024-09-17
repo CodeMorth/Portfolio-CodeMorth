@@ -34,7 +34,7 @@ export const HomeComponent = () => {
         <div className="logo-icons-container">
           <motion.a
             target="_blank"
-            href="https://www.linkedin.com/in/kevin-salinas-20941a194/"
+            href="https://www.linkedin.com/in/kevin-salinas-valverde-20941a194/"
             whileHover={{ scale: 1.1 }}
             whileTap={{ scale: 0.7 }}
             className="linkedin-container"
@@ -48,7 +48,7 @@ export const HomeComponent = () => {
           </motion.a>
           <motion.a
             target="_blank"
-            href="https://github.com/Code-Morth"
+            href="https://github.com/CodeMorth"
             whileHover={{ scale: 1.1 }}
             whileTap={{ scale: 0.7 }}
             className="github-container"

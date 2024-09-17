@@ -1,40 +1,73 @@
 .ProjectCard {
-  @apply flex relative flex-col justify-center items-center border-[1px] w-auto px-8 py-2 rounded-lg;
+  @apply flex w-72 h-72 relative flex-col justify-center items-center border-[1px] px-8 py-2 rounded-lg;
 
   transform-style: preserve-3d; /* Habilita el renderizado en 3D */
   perspective: 1000px; /* Controla la profundidad 3D */
+  transition: all 0.3s ease;
 
   @screen laptop {
-    width: calc(20rem * var(--scale));
-    height: calc(20rem * var(--scale));
-    gap: calc(1rem * var(--scale));
+    width: calc(23rem * var(--scale));
+    height: calc(23rem * var(--scale));
+    padding-bottom: calc(2rem * var(--scale));
   }
 
   .image-container {
-    @apply w-full h-full flex justify-center items-center;
+    @apply w-44 h-44 flex justify-center items-center;
     transform-style: preserve-3d; /* Habilitar el renderizado 3D */
+    transition: all 0.3s ease;
+    transform: translateZ(60px); /* Hace que la imagen "salte" hacia adelante */
 
     @screen laptop {
-      height: calc(13rem * var(--scale));
+      width: calc(15rem * var(--scale));
+      height: calc(15rem * var(--scale));
     }
+  }
 
-    transform: translateZ(50px); /* Hace que la imagen "salte" hacia adelante */
+  img {
+    transition: all 0.3s ease;
+  }
+
+  .icon-container {
+    @apply absolute w-0 h-0;
+    transform-style: preserve-3d; /* Habilitar el renderizado 3D */
+    transition: all 0.3s ease;
+
+    img {
+      transform: translateZ(
+        100px
+      ); /* Hace que la imagen "salte" hacia adelante */
+    }
   }
 
   h3 {
-    @apply text-4xl font-semibold;
-    font-size: calc(2.2rem * var(--scale));
+    @apply text-2xl font-semibold;
     transition: font-size 0.3s ease; /* Transición suave para el tamaño de la fuente */
-    transform: translateZ(80px); /* Hace que el texto "salte" hacia adelante */
+    transform: translateZ(85px); /* Hace que el texto "salte" hacia adelante */
+
+    @screen laptop {
+      font-size: calc(2.2rem * var(--scale));
+    }
   }
 }
 
 .ProjectCard:hover {
   h3 {
+
+    @apply text-4xl ;
+
     @screen laptop {
       font-size: calc(2.9rem * var(--scale));
 
       @apply font-bold;
+    }
+  }
+
+  .icon-container {
+    @apply w-14 h-14;
+
+    @screen laptop {
+      width: calc(5rem * var(--scale));
+      height: calc(5rem * var(--scale));
     }
   }
 }
