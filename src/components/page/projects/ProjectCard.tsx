@@ -19,7 +19,7 @@ export const ProjectCard = ({
 
   const tiltRef = useVanillaTilt({
     max: 45,
-    speed: 9000,
+    speed: 1000,
     scale: 1.3
   })
 
