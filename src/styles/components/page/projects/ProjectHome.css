@@ -2,15 +2,15 @@
   @apply flex flex-col gap-40 w-full h-full pt-24 ;
 
   @screen tablet {
-    @apply justify-center items-center gap-36;
+    @apply justify-around items-center gap-0;
   }
 
   @screen laptop {
-    @apply min-h-screen flex flex-col items-center justify-center pt-0  overflow-hidden;
+    @apply min-h-screen flex flex-col items-center gap-0 justify-around overflow-hidden;
 
-    padding-top: calc(10.5rem * var(--scale));
+    padding-top: calc(8.4rem * var(--scale));
 
-    gap: calc(10.5rem * var(--scale));
+
   }
 
   h1 {
@@ -29,11 +29,11 @@
     @apply flex flex-col justify-center items-center gap-52 w-full pb-36;
 
     @screen tablet {
-      @apply flex-row;
+      @apply flex-row justify-evenly gap-0 pb-0;
     }
 
     @screen laptop {
-      @apply justify-center items-center;
+      @apply justify-center items-center ;
 
       gap: calc(25rem * var(--scale));
     }
