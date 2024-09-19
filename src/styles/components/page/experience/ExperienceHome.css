@@ -1,8 +1,8 @@
 .ExperienceHome {
-  @apply flex flex-col gap-6 pt-24 w-full;
+  @apply flex flex-col gap-6 pt-24 h-full w-full;
 
   @screen tablet {
-    @apply justify-start items-center;
+    @apply justify-start items-center h-auto;
   }
 
   @screen laptop {

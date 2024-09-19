@@ -9,43 +9,55 @@ export const ProjectHome = () => {
 
   const TailConfImages = [
     {
-      src: '/Tailwind_Logo.svg'
+      src: '/Tailwind_Logo.svg',
+      filter_shadow: 'drop-shadow(0px 0px 30px rgba(0, 255, 212,0.9))'
     },
     {
-      src: '/Next_Logo.svg'
+      src: '/Electron_Logo.svg',
+      filter_shadow: 'drop-shadow(0px 0px 30px rgba(47, 50, 66, 1))'
     },
     {
-      src: '/HTML5_Logo.svg'
+      src: '/React_Logo.svg',
+      filter_shadow: 'drop-shadow(0px 0px 30px rgba(0, 216, 255, 0.5))'
     },
     {
-      src: '/TS_Logo.svg'
+      src: '/TS_Logo.svg',
+      filter_shadow: 'drop-shadow(0px 0px 30px rgba(0, 122, 204, 0.5))'
     },
     {
-      src: '/React_Logo.svg'
+      src: '/Next_Logo.svg',
+      filter_shadow: 'drop-shadow(0px 0px 30px rgba(255, 255, 255,0.3))'
     }
   ]
 
   const DevFriendImages = [
     {
-      src: '/Tailwind_Logo.svg'
+      src: '/Railway_Logo.svg',
+      filter_shadow: 'drop-shadow(0px 0px 30px rgba(255, 255, 255,0.3))'
     },
     {
-      src: '/Next_Logo.svg'
+      src: '/MySql_Logo.svg',
+      filter_shadow: 'drop-shadow(0px 0px 30px rgba(0, 159, 202, 1))'
     },
     {
-      src: '/TS_Logo.svg'
+      src: '/Tailwind_Logo.svg',
+      filter_shadow: 'drop-shadow(0px 0px 30px rgba(0, 255, 212,0.9))'
     },
     {
-      src: '/Cloudinary_Logo.svg'
+      src: '/Express_Logo.svg',
+      filter_shadow: 'drop-shadow(0px 0px 30px rgba(255, 255, 255,0.5))'
     },
     {
-      src: '/Express_Logo.svg'
+      src: '/Cloudinary_Logo.svg',
+      filter_shadow: 'drop-shadow(0px 0px 30px rgba(52, 72, 197, 1))'
     },
     {
-      src: '/MySql_Logo.svg'
+      src: '/Next_Logo.svg',
+      filter_shadow: 'drop-shadow(0px 0px 30px rgba(255, 255, 255,0.3))'
     },
     {
-      src: '/Railway_Logo.svg'
+      src: '/TS_Logo.svg',
+      filter_shadow: 'drop-shadow(0px 0px 30px rgba(0, 122, 204, 0.5))'
     }
   ]
 
@@ -65,6 +77,7 @@ export const ProjectHome = () => {
             title="TailConf"
             filter_shadow="drop-shadow(5px 5px 10px rgba(4, 245, 242, 0.3))"
             imagesData={TailConfImages}
+            leftOrigth='left'
           />
         </Link>
         <Link href={''} target="_blank">
@@ -76,6 +89,8 @@ export const ProjectHome = () => {
             title="DevFriend"
             filter_shadow="drop-shadow(5px 5px 10px rgba(255, 82, 176, 0.3))"
             imagesData={DevFriendImages}
+            leftOrigth='right'
+
           />
         </Link>
       </div>

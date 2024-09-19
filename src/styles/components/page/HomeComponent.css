@@ -1,5 +1,5 @@
 .HomeComponent {
-  @apply bg-[#000814] h-full w-full pt-24 flex flex-col-reverse justify-end gap-[2rem];
+  @apply bg-[#000814] h-auto w-full flex flex-col-reverse justify-end gap-[2rem];
 
   @screen tablet {
     @apply flex-row pt-0 justify-center items-center min-h-screen gap-[3rem];

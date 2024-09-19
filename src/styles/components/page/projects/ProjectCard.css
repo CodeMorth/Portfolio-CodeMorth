@@ -1,5 +1,5 @@
 .ProjectCard {
-  @apply flex w-72 h-72 relative flex-col justify-center items-center border-[1px] px-8 py-2 rounded-lg;
+  @apply flex w-64 h-64 relative flex-col justify-center items-center border-[1px] px-8 py-2 rounded-lg;
 
   transform-style: preserve-3d; /* Habilita el renderizado en 3D */
   perspective: 1000px; /* Controla la profundidad 3D */
@@ -9,6 +9,21 @@
     width: calc(23rem * var(--scale));
     height: calc(23rem * var(--scale));
     padding-bottom: calc(2rem * var(--scale));
+  }
+
+  .text-description {
+    @apply absolute rounded-md text-pretty text-sm overflow-hidden backdrop-blur-sm p-3;
+    transform-style: preserve-3d; /* Habilitar el renderizado 3D */
+    transition: all 0.3s ease;
+
+    @screen tablet {
+      font-size: calc(0.8rem * var(--scale));
+      padding: calc(1rem * var(--scale));
+    }
+
+    @screen laptop {
+      font-size: calc(1rem * var(--scale));
+    }
   }
 
   .image-container {
@@ -52,8 +67,7 @@
 
 .ProjectCard:hover {
   h3 {
-
-    @apply text-4xl ;
+    @apply text-4xl;
 
     @screen laptop {
       font-size: calc(2.9rem * var(--scale));
@@ -68,6 +82,14 @@
     @screen laptop {
       width: calc(5rem * var(--scale));
       height: calc(5rem * var(--scale));
+    }
+  }
+
+  .text-description {
+    @apply opacity-100;
+
+    @screen tablet {
+      @apply w-auto h-auto;
     }
   }
 }

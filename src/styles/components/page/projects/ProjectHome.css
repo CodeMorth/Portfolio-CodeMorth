@@ -1,5 +1,5 @@
 .ProjectHome {
-  @apply flex flex-col gap-20 w-full h-full pt-24 ;
+  @apply flex flex-col gap-40 w-full h-full pt-24 ;
 
   @screen tablet {
     @apply justify-center items-center gap-36;
@@ -14,7 +14,7 @@
   }
 
   h1 {
-    @apply font-bold text-[#FFC300] text-6xl text-center;
+    @apply font-bold text-[#FFC300] text-5xl text-center;
 
     @screen tablet {
       @apply text-7xl;
@@ -26,7 +26,7 @@
   }
 
   .projectCard-container {
-    @apply flex flex-col justify-center items-center gap-32 w-full pb-36;
+    @apply flex flex-col justify-center items-center gap-52 w-full pb-36;
 
     @screen tablet {
       @apply flex-row;
