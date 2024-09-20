@@ -1,6 +1,6 @@
 'use client'
 import { ExperienceCard } from '@/components/page/experience/'
-import { useLanguage } from '@/Hooks/Global'
+import { useLanguage } from '@/Hooks'
 import { ExperienceCardLanguage } from '@/interface/Language'
 
 export const ExperienceHome = () => {

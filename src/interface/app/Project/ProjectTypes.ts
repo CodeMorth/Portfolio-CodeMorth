@@ -15,11 +15,14 @@ export interface ImageData {
 }
 
 export interface dataTransformationType {
-  isEntering:boolean
+  hover: boolean
   imageMainRef: React.RefObject<HTMLImageElement>
   iconsRefs: React.RefObject<(HTMLDivElement | null)[]>
   imagesIcon: React.RefObject<(HTMLDivElement | null)[]>
   imagesData: ImageData[]
   windowSize: number // Asegúrate de que el tipo es un objeto con width y height
   filter_shadow: string
+  textRef: any
+  movile: boolean
+  leftOrigth: 'left' | 'right'
 }

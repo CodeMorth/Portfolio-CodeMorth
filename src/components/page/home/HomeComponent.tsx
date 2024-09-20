@@ -2,7 +2,7 @@
 import Image from "next/image"
 import React from "react"
 import { motion } from "framer-motion"
-import { useLanguage, ViewNavBarGlobal } from "@/Hooks/Global"
+import { useLanguage, ViewNavBarGlobal } from "@/Hooks"
 
 export const HomeComponent = () => {
   const { languageData } = useLanguage()

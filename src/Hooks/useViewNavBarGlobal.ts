@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import { LanguageContext } from "../../Context/LanguageProvider";
+import { LanguageContext } from "../Context/LanguageProvider";
 
 export const ViewNavBarGlobal = () => {
 

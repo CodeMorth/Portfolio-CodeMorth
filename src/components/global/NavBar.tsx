@@ -2,7 +2,7 @@
 import Link from 'next/link'
 import Image from 'next/image'
 import { motion } from 'framer-motion'
-import { useDataNavBar, useLanguage, ViewNavBarGlobal } from '@/Hooks/Global'
+import { useDataNavBar, useLanguage, ViewNavBarGlobal } from '@/Hooks'
 import { NavbarLanguageType } from '@/interface/Language'
 
 export const NavBar = () => {

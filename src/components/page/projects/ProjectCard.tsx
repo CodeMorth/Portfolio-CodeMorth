@@ -1,6 +1,6 @@
 'use client'
 import { useState, useRef } from 'react'
-import { useVanillaTilt, useWindowSize } from '@/Hooks/Global'
+import { useHammer, useVanillaTilt, useWindowSize } from '@/Hooks'
 import { ImageData, ProjectCardType } from '@/interface/app/Project'
 import { transformationsHover, getTextClass } from '@/components/page/projects'
 import Image from 'next/image'
@@ -15,11 +15,9 @@ export const ProjectCard = ({
   imagesData,
   leftOrigth
 }: ProjectCardType) => {
-  const [isHovered, setIsHovered] = useState(false)
-
   const tiltRef = useVanillaTilt({
     max: 45,
-    speed: 1000,
+    speed: 5000,
     scale: 1.3
   })
 
@@ -27,28 +25,69 @@ export const ProjectCard = ({
   const imagesIcon = useRef<(HTMLDivElement | null)[]>([])
   const iconsRefs = useRef<(HTMLDivElement | null)[]>([])
   const textRef = useRef<HTMLDivElement | null>(null)
-  const { windowSize } = useWindowSize()
+  const { windowSize, movile } = useWindowSize()
 
-  const dataTransformation = (isEntering: boolean = true) => {
-    return {
-      isEntering,
+  // Define los límites máximos de inclinación (puedes ajustarlos según lo que necesites)
+  const maxTilt = 30 // Grados máximos de inclinación
+  const movility = 200
+
+  // Función para limitar los valores de inclinación
+  const limitRotation = (value: number, limit: number) => {
+    return Math.min(Math.max(value, -limit), limit)
+  }
+
+  // Define los gestos y sus callbacks
+  const gestures = {
+    press: (event: HammerInput) => {
+      console.log('press!', event)
+    },
+    // Maneja el evento de `pan` para actualizar el estilo del elemento
+    pan: (event: HammerInput) => {
+      transformation(true)
+      const { deltaX, deltaY } = event
+
+      // Calcula las rotaciones basadas en el movimiento del pan
+      let rotateY = (deltaX / window.innerWidth) * movility // Movimiento horizontal afecta a rotateY
+      let rotateX = -(deltaY / window.innerHeight) * movility // Movimiento vertical afecta a rotateX
+
+      // Limitar las rotaciones para que no excedan el máximo permitido
+      rotateY = limitRotation(rotateY, maxTilt)
+      rotateX = limitRotation(rotateX, maxTilt)
+
+      // Aplica las transformaciones de rotación al estilo del elemento
+      if (tiltRef.current) {
+        tiltRef.current.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg)`
+      }
+
+      console.log(`Panned: ${deltaX}, ${deltaY}`)
+    },
+    // Restablecer el estado del tilt al terminar el pan
+    panend: () => {
+      transformation(false)
+      if (tiltRef.current) {
+        tiltRef.current.style.transform = `rotateX(0deg) rotateY(0deg)`
+      }
+    }
+  }
+
+  // Usa el hook para enlazar los gestos
+  useHammer(tiltRef, gestures)
+
+  const transformation = (hover: boolean = true) => {
+    const data = {
+      hover,
       imageMainRef,
       iconsRefs,
       imagesIcon,
       imagesData,
       windowSize,
-      filter_shadow
+      filter_shadow,
+      textRef,
+      movile,
+      leftOrigth
     }
-  }
 
-  const handleMouseEnter = () => {
-    transformationsHover(dataTransformation())
-    setIsHovered(true)
-  }
-
-  const handleMouseLeave = () => {
-    transformationsHover(dataTransformation(false))
-    setIsHovered(false)
+    transformationsHover(data)
   }
 
   return (
@@ -60,12 +99,11 @@ export const ProjectCard = ({
         color: font_color
       }}
       className="ProjectCard"
-      onMouseEnter={handleMouseEnter}
-      onMouseLeave={handleMouseLeave}
-      onTouchStart={handleMouseEnter}
-      onTouchEnd={handleMouseLeave}
-      onTouchMove={(data) => {
-        console.log(data)
+      onMouseEnter={() => {
+        transformation(true)
+      }}
+      onMouseLeave={() => {
+        transformation(false)
       }}
     >
       {imagesData.map((data: ImageData, index: number) => (
@@ -94,7 +132,7 @@ export const ProjectCard = ({
           borderColor: border_color,
           color: font_color
         }}
-        className={getTextClass(isHovered, leftOrigth)}
+        className="text-description transform-text-front-movile laptop:transform-text-front-laptop "
       >
         Generador de clases de TailWind, genera clases genéricas para agilizar
         el proceso de desarrollo.

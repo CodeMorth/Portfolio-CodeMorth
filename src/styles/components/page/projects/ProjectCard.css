@@ -43,7 +43,7 @@
   }
 
   .icon-container {
-    @apply absolute w-0 h-0;
+    @apply absolute w-0 h-0 z-50;
     transform-style: preserve-3d; /* Habilitar el renderizado 3D */
     transition: all 0.3s ease;
 
@@ -76,14 +76,14 @@
     }
   }
 
-  .icon-container {
+  /* .icon-container {
     @apply w-14 h-14;
 
     @screen laptop {
       width: calc(5rem * var(--scale));
       height: calc(5rem * var(--scale));
     }
-  }
+  } */
 
   .text-description {
     @apply opacity-100;

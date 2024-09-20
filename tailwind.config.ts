@@ -35,9 +35,12 @@ const config: Config = {
         },
         '.transform-text-front-movile': {
           transform:
-            'translateX(calc(0rem * var(--scale))) translateY(calc(-7.5rem * var(--scale))) translateZ(calc(7rem * var(--scale)))'
+            'translateX(0rem) translateY(-7.5rem) translateZ(7rem)'
         },
         '.transform-text-back-movile': {
+          transform: 'translateX(0rem) translateY(-11rem) translateZ(-3rem)'
+        },
+        '.hover\\:transform-text-back-movile:hover': {
           transform: 'translateX(0rem) translateY(-11rem) translateZ(-3rem)'
         },
         '.transform-text-back-left-laptop': {

@@ -1,5 +1,5 @@
 'use client'
-import { useLanguage } from '@/Hooks/Global'
+import { useLanguage } from '@/Hooks'
 import React from 'react'
 import { ProjectCard } from '@/components/page/projects'
 import Link from 'next/link'
