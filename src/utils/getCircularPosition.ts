@@ -1,15 +1,15 @@
 export const getCircularPosition = (
   index: number,
   total: number,
-  windowSize: number
+  windowWidth: number
 ) => {
   // El radio del círculo
   let radius =
-    windowSize < 768
+    windowWidth < 768
       ? 110
-      : windowSize < 1200
+      : windowWidth < 1200
       ? 150
-      : windowSize < 1920
+      : windowWidth < 1920
       ? 180
       : 180
 

@@ -1,8 +1,8 @@
 'use client'
-import { useState, useRef } from 'react'
+import { useRef } from 'react'
 import { useHammer, useVanillaTilt, useWindowSize } from '@/Hooks'
 import { ImageData, ProjectCardType } from '@/interface/app/Project'
-import { transformationsHover, getTextClass } from '@/components/page/projects'
+import { transformationsHover } from '@/components/page/projects'
 import Image from 'next/image'
 
 export const ProjectCard = ({
@@ -25,7 +25,7 @@ export const ProjectCard = ({
   const imagesIcon = useRef<(HTMLDivElement | null)[]>([])
   const iconsRefs = useRef<(HTMLDivElement | null)[]>([])
   const textRef = useRef<HTMLDivElement | null>(null)
-  const { windowSize, movile } = useWindowSize()
+  const { windowWidth, movile } = useWindowSize()
 
   // Define los límites máximos de inclinación (puedes ajustarlos según lo que necesites)
   const maxTilt = 30 // Grados máximos de inclinación
@@ -38,17 +38,14 @@ export const ProjectCard = ({
 
   // Define los gestos y sus callbacks
   const gestures = {
-    press: (event: HammerInput) => {
-      console.log('press!', event)
-    },
     // Maneja el evento de `pan` para actualizar el estilo del elemento
     pan: (event: HammerInput) => {
       transformation(true)
       const { deltaX, deltaY } = event
 
       // Calcula las rotaciones basadas en el movimiento del pan
-      let rotateY = (deltaX / window.innerWidth) * movility // Movimiento horizontal afecta a rotateY
-      let rotateX = -(deltaY / window.innerHeight) * movility // Movimiento vertical afecta a rotateX
+      let rotateY = (deltaX /windowWidth) * movility // Movimiento horizontal afecta a rotateY
+      let rotateX = -(deltaY / windowWidth) * movility // Movimiento vertical afecta a rotateX
 
       // Limitar las rotaciones para que no excedan el máximo permitido
       rotateY = limitRotation(rotateY, maxTilt)
@@ -80,7 +77,7 @@ export const ProjectCard = ({
       iconsRefs,
       imagesIcon,
       imagesData,
-      windowSize,
+      windowWidth,
       filter_shadow,
       textRef,
       movile,

@@ -20,7 +20,7 @@ export interface dataTransformationType {
   iconsRefs: React.RefObject<(HTMLDivElement | null)[]>
   imagesIcon: React.RefObject<(HTMLDivElement | null)[]>
   imagesData: ImageData[]
-  windowSize: number // Asegúrate de que el tipo es un objeto con width y height
+  windowWidth: number // Asegúrate de que el tipo es un objeto con width y height
   filter_shadow: string
   textRef: any
   movile: boolean

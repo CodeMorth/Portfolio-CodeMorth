@@ -1,3 +1,4 @@
+"use client"
 import { dataTransformationType } from '@/interface/app/Project'
 import { getCircularPosition } from '@/utils'
 
@@ -8,7 +9,7 @@ export const transformationsHover = (dataTransformation: dataTransformationType)
     iconsRefs,
     imagesIcon,
     imagesData,
-    windowSize,
+    windowWidth,
     filter_shadow,
     textRef,
     movile,
@@ -47,7 +48,7 @@ export const transformationsHover = (dataTransformation: dataTransformationType)
   if (iconsRefs.current) {
     iconsRefs.current.forEach((iconRef, index) => {
       if (iconRef) {
-        const { x, y } = getCircularPosition(index, imagesData.length, windowSize)
+        const { x, y } = getCircularPosition(index, imagesData.length, windowWidth)
 
         // Aplicar transformaciones y tamaño
         iconRef.style.transform = hover

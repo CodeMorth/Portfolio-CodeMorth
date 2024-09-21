@@ -2,23 +2,29 @@
 import { useEffect, useState } from 'react'
 
 export const useWindowSize = () => {
-  const [windowSize, setWindowSize] = useState<number>(() => {
+  const [windowWidth, setWindowWidth] = useState<number>(() => {
     return typeof window !== 'undefined' ? window.innerWidth : 1920
+  })
+
+  const [windowHeight, setWindowHeight] = useState<number>(() => {
+    return typeof window !== 'undefined' ? window.innerHeight : 1080
   })
 
   useEffect(() => {
     const handleResize = () => {
-      setWindowSize(window.innerWidth)
+      setWindowWidth(window.innerWidth)
+      setWindowHeight(window.innerHeight)
     }
+
     window.addEventListener('resize', handleResize)
     return () => {
       window.removeEventListener('resize', handleResize)
     }
-  }, [windowSize])
+  }, [])
 
-  const movile = windowSize < 768 ? true : false
-  const tablet = windowSize >= 768 && windowSize < 1200 ? true : false
-  const laptop = 1200 <= windowSize  ? true : false
+  const movile = windowWidth < 768
+  const tablet = windowWidth >= 768 && windowWidth < 1200
+  const laptop = windowWidth >= 1200
 
-  return { windowSize, movile, tablet, laptop }
+  return { windowWidth, windowHeight, movile, tablet, laptop }
 }
