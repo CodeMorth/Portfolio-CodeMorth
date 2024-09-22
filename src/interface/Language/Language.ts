@@ -4,7 +4,7 @@ export interface PackLanguageType {
 }
 
 export interface DataLanguageType {
-  navbarLanguage: NavbarLanguage[]
+  navbarLanguage: NavbarLanguageType[]
   homeLanguage: HomeLanguage
   experienceLanguage: ExperienceLanguage
   projectLanguage: ProjectLanguage
@@ -30,7 +30,7 @@ export interface HomeLanguage {
   p: string
 }
 
-export interface NavbarLanguage {
+export interface NavbarLanguageType {
   text: string
   ref: string
   leftLine: number
