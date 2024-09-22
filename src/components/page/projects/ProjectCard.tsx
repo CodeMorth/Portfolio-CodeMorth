@@ -4,6 +4,7 @@ import { useHammer, useVanillaTilt, useWindowSize } from '@/Hooks'
 import { ImageData, ProjectCardType } from '@/interface/app/Project'
 import { transformationsHover } from '@/components/page/projects'
 import Image from 'next/image'
+import { limitRotation } from '@/utils'
 
 export const ProjectCard = ({
   image,
@@ -13,11 +14,12 @@ export const ProjectCard = ({
   title,
   filter_shadow,
   imagesData,
-  leftOrigth
+  leftOrigth,
+  txtDescription
 }: ProjectCardType) => {
   const tiltRef = useVanillaTilt({
     max: 45,
-    speed: 5000,
+    speed: 10000,
     scale: 1.3
   })
 
@@ -29,12 +31,7 @@ export const ProjectCard = ({
 
   // Define los límites máximos de inclinación (puedes ajustarlos según lo que necesites)
   const maxTilt = 30 // Grados máximos de inclinación
-  const movility = 200
-
-  // Función para limitar los valores de inclinación
-  const limitRotation = (value: number, limit: number) => {
-    return Math.min(Math.max(value, -limit), limit)
-  }
+  const movility = 200 // Movilidad
 
   // Define los gestos y sus callbacks
   const gestures = {
@@ -44,7 +41,7 @@ export const ProjectCard = ({
       const { deltaX, deltaY } = event
 
       // Calcula las rotaciones basadas en el movimiento del pan
-      let rotateY = (deltaX /windowWidth) * movility // Movimiento horizontal afecta a rotateY
+      let rotateY = (deltaX / windowWidth) * movility // Movimiento horizontal afecta a rotateY
       let rotateX = -(deltaY / windowWidth) * movility // Movimiento vertical afecta a rotateX
 
       // Limitar las rotaciones para que no excedan el máximo permitido
@@ -55,8 +52,6 @@ export const ProjectCard = ({
       if (tiltRef.current) {
         tiltRef.current.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg)`
       }
-
-      console.log(`Panned: ${deltaX}, ${deltaY}`)
     },
     // Restablecer el estado del tilt al terminar el pan
     panend: () => {
@@ -67,11 +62,11 @@ export const ProjectCard = ({
     }
   }
 
-  // Usa el hook para enlazar los gestos
+  //Hook para simular los gestos
   useHammer(tiltRef, gestures)
 
   const transformation = (hover: boolean = true) => {
-    const data = {
+    transformationsHover({
       hover,
       imageMainRef,
       iconsRefs,
@@ -82,9 +77,7 @@ export const ProjectCard = ({
       textRef,
       movile,
       leftOrigth
-    }
-
-    transformationsHover(data)
+    })
   }
 
   return (
@@ -117,8 +110,8 @@ export const ProjectCard = ({
             }}
             alt=""
             src={data.src}
-            width={1000}
-            height={1000}
+            width={100}
+            height={100}
           />
         </div>
       ))}
@@ -129,10 +122,11 @@ export const ProjectCard = ({
           borderColor: border_color,
           color: font_color
         }}
-        className="text-description transform-text-front-movile laptop:transform-text-front-laptop "
+        className={`text-description transform-text-front-movile laptop:transform-text-front-laptop ${
+          leftOrigth === 'left' ? 'laptop:text-left' : 'laptop:text-right'
+        }`}
       >
-        Generador de clases de TailWind, genera clases genéricas para agilizar
-        el proceso de desarrollo.
+        {txtDescription}
       </div>
 
       <div className="image-container">

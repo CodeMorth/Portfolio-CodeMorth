@@ -40,10 +40,10 @@ export interface NavbarLanguage {
 
 export interface ProjectLanguage {
   tittle: string
-  projectCard: ProjectCardType[]
+  projectCard: ProjectCard[]
 }
 
-export interface ProjectCardType {
+export interface ProjectCard {
   bg_color: string
   border_color: string
   font_color: string
@@ -51,7 +51,7 @@ export interface ProjectCardType {
   title: string
   filter_shadow: string
   imagesData: ImagesDatum[]
-  leftOrigth: 'left' | 'right'
+  leftOrigth: string
   txtDescription: string
 }
 

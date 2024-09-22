@@ -1,5 +1,5 @@
 import '@/styles/index.css'
-import { NavBar } from '@/components/global'
+import { NavBar, PageTransition } from '@/components/global'
 import { LanguageProviderContext } from '@/Context'
 import { PrimeReactProvider } from 'primereact/api'
 
@@ -10,11 +10,11 @@ interface RootLayoutProps {
 export default function RootLayout({ children }: RootLayoutProps) {
   return (
     <html lang="es">
-      <body className='h-full'>
+      <body className="h-full overflow-x-hidden overflow-y-hidden">
         <LanguageProviderContext>
-          <PrimeReactProvider>            
-              <NavBar />
-              {children}            
+          <PrimeReactProvider>
+            <NavBar />
+            <PageTransition>{children}</PageTransition>
           </PrimeReactProvider>
         </LanguageProviderContext>
       </body>

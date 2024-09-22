@@ -2,19 +2,18 @@
 import { dataTransformationType } from '@/interface/app/Project'
 import { getCircularPosition } from '@/utils'
 
-export const transformationsHover = (dataTransformation: dataTransformationType) => {
-  const {
-    hover,
-    imageMainRef,
-    iconsRefs,
-    imagesIcon,
-    imagesData,
-    windowWidth,
-    filter_shadow,
-    textRef,
-    movile,
-    leftOrigth,
-  } = dataTransformation
+export const transformationsHover = ({
+  hover,
+  imageMainRef,
+  iconsRefs,
+  imagesIcon,
+  imagesData,
+  windowWidth,
+  filter_shadow,
+  textRef,
+  movile,
+  leftOrigth,
+}: dataTransformationType) => {
 
   // Actualiza el filtro de la imagen principal
   if (imageMainRef.current) {

@@ -7,6 +7,7 @@ export interface ProjectCardType {
   filter_shadow: string
   imagesData: ImageData[]
   leftOrigth: 'left' | 'right'
+  txtDescription:string
 }
 
 export interface ImageData {

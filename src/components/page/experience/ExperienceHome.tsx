@@ -6,7 +6,7 @@ import { ExperienceCardLanguage } from '@/interface/Language'
 export const ExperienceHome = () => {
   const { languageData } = useLanguage()
   return (
-    <div className="ExperienceHome main-page">
+    <div className="ExperienceHome">
       <h1>{languageData?.experienceLanguage.title}</h1>
       <div className="experienceCard-container">
         {languageData?.experienceLanguage.experienceCardLanguage?.map(

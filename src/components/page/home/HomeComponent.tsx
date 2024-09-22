@@ -11,7 +11,7 @@ export const HomeComponent = () => {
   const text = languageData?.homeLanguage
 
   return (
-    <main className="HomeComponent main-page">
+    <main className="HomeComponent">
       <div className="left-container">
         <div className="perfil-image-container">
           <motion.img
