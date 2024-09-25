@@ -49,14 +49,14 @@
         {
           "title": "Freelancer",
           "subtitle": "January 2023-2024",
-          "src": "/FreelanceLogoBgYellow.svg",
+          "src": "/general/FreelanceLogoBgYellow.svg",
           "alt": "Logo of CodeMorth Freelance",
           "description": "I have worked independently in web development, collaborating with clients in my local area. Through this experience, I have gradually acquired knowledge."
         },
         {
           "title": "Diurvan Consultants",
           "subtitle": "January 2023-Present",
-          "src": "/DiurvanLogo.svg",
+          "src": "/general/DiurvanLogo.svg",
           "alt": "Logo of Diurvan Consultants",
           "description": "As a Front-End Developer at Diurvan Consultants, I address client requirements on websites. I use TypeScript, React.js, and CSS, collaborating on projects from start to final delivery, employing Git and GitHub for collaboration."
         }
@@ -66,31 +66,32 @@
       "tittle": "PROJECTS",
       "projectCard": [
         {
+          "href": "https://web-generador-de-clases-tailwind-electron.vercel.app/",
           "bg_color": "rgba(4, 245, 242, 0.03)",
           "border_color": "#04F5F2",
           "font_color": "#04F5F2",
-          "image": "Logo_TailwindConverter.svg",
+          "image": "/general/Logo_TailwindConverter.svg",
           "title": "TailConf",
           "filter_shadow": "drop-shadow(5px 5px 10px rgba(4, 245, 242, 0.3))",
           "imagesData": [
             {
-              "src": "/Tailwind_Logo.svg",
+              "src": "/technologies/Tailwind_Logo.svg",
               "filter_shadow": "drop-shadow(0px 0px 30px rgba(0, 255, 212,0.9))"
             },
             {
-              "src": "/Electron_Logo.svg",
+              "src": "/technologies/Electron_Logo.svg",
               "filter_shadow": "drop-shadow(0px 0px 30px rgba(47, 50, 66, 1))"
             },
             {
-              "src": "/React_Logo.svg",
+              "src": "/technologies/React_Logo.svg",
               "filter_shadow": "drop-shadow(0px 0px 30px rgba(0, 216, 255, 0.5))"
             },
             {
-              "src": "/TS_Logo.svg",
+              "src": "/technologies/TS_Logo.svg",
               "filter_shadow": "drop-shadow(0px 0px 30px rgba(0, 122, 204, 0.5))"
             },
             {
-              "src": "/Next_Logo.svg",
+              "src": "/technologies/Next_Logo.svg",
               "filter_shadow": "drop-shadow(0px 0px 30px rgba(255, 255, 255,0.3))"
             }
           ],
@@ -98,39 +99,41 @@
           "txtDescription": "TailWind Class Generator, generates generic classes to speed up the development process."
         },
         {
+          "href": "https://google.com",
+
           "bg_color": "rgba(255, 82, 176, 0.03)",
           "border_color": "#FF52B0",
           "font_color": "#FF52B0",
-          "image": "Logo_DevFriends.svg",
+          "image": "general/Logo_DevFriends.svg",
           "title": "DevFriend",
           "filter_shadow": "drop-shadow(5px 5px 10px rgba(255, 82, 176, 0.3))",
           "imagesData": [
             {
-              "src": "/Railway_Logo.svg",
+              "src": "/technologies/Railway_Logo.svg",
               "filter_shadow": "drop-shadow(0px 0px 30px rgba(255, 255, 255,0.3))"
             },
             {
-              "src": "/MySql_Logo.svg",
+              "src": "/technologies/MySql_Logo.svg",
               "filter_shadow": "drop-shadow(0px 0px 30px rgba(0, 159, 202, 1))"
             },
             {
-              "src": "/Tailwind_Logo.svg",
+              "src": "/technologies/Tailwind_Logo.svg",
               "filter_shadow": "drop-shadow(0px 0px 30px rgba(0, 255, 212,0.9))"
             },
             {
-              "src": "/Express_Logo.svg",
+              "src": "/technologies/Express_Logo.svg",
               "filter_shadow": "drop-shadow(0px 0px 30px rgba(255, 255, 255,0.5))"
             },
             {
-              "src": "/Cloudinary_Logo.svg",
+              "src": "/technologies/Cloudinary_Logo.svg",
               "filter_shadow": "drop-shadow(0px 0px 30px rgba(52, 72, 197, 1))"
             },
             {
-              "src": "/Next_Logo.svg",
+              "src": "/technologies/Next_Logo.svg",
               "filter_shadow": "drop-shadow(0px 0px 30px rgba(255, 255, 255,0.3))"
             },
             {
-              "src": "/TS_Logo.svg",
+              "src": "/technologies/TS_Logo.svg",
               "filter_shadow": "drop-shadow(0px 0px 30px rgba(0, 122, 204, 0.5))"
             }
           ],
@@ -190,14 +193,14 @@
         {
           "title": "Freelancer",
           "subtitle": "Enero 2023-2024",
-          "src": "/FreelanceLogoBgYellow.svg",
+          "src": "/general/FreelanceLogoBgYellow.svg",
           "alt": "Logo de CodeMorth Freelance",
           "description": "He trabajado de forma autónoma en el desarrollo de páginas web, colaborando con clientes ubicados en mi área local. A través de esta experiencia, he ido adquiriendo conocimientos gradualmente."
         },
         {
           "title": "Diurvan Consultores",
           "subtitle": "Enero 2023-Actualidad",
-          "src": "/DiurvanLogo.svg",
+          "src": "general/DiurvanLogo.svg",
           "alt": "Logo de la consultora Diurvan",
           "description": "Como Programador Front-End en Diurvan Consultores, resuelvo requerimientos de clientes en sitios web. Uso TypeScript, React.js y CSS, colaborando en proyectos desde inicio hasta entrega final, empleando Git y GitHub para colaboración."
         }
@@ -207,31 +210,33 @@
       "tittle": "PROYECTOS",
       "projectCard": [
         {
+          "href": "https://web-generador-de-clases-tailwind-electron.vercel.app/",
+
           "bg_color": "rgba(4, 245, 242, 0.03)",
           "border_color": "#04F5F2",
           "font_color": "#04F5F2",
-          "image": "Logo_TailwindConverter.svg",
+          "image": "general/Logo_TailwindConverter.svg",
           "title": "TailConf",
           "filter_shadow": "drop-shadow(5px 5px 10px rgba(4, 245, 242, 0.3))",
           "imagesData": [
             {
-              "src": "/Tailwind_Logo.svg",
+              "src": "/technologies/Tailwind_Logo.svg",
               "filter_shadow": "drop-shadow(0px 0px 30px rgba(0, 255, 212,0.9))"
             },
             {
-              "src": "/Electron_Logo.svg",
+              "src": "/technologies/Electron_Logo.svg",
               "filter_shadow": "drop-shadow(0px 0px 30px rgba(47, 50, 66, 1))"
             },
             {
-              "src": "/React_Logo.svg",
+              "src": "/technologies/React_Logo.svg",
               "filter_shadow": "drop-shadow(0px 0px 30px rgba(0, 216, 255, 0.5))"
             },
             {
-              "src": "/TS_Logo.svg",
+              "src": "/technologies/TS_Logo.svg",
               "filter_shadow": "drop-shadow(0px 0px 30px rgba(0, 122, 204, 0.5))"
             },
             {
-              "src": "/Next_Logo.svg",
+              "src": "/technologies/Next_Logo.svg",
               "filter_shadow": "drop-shadow(0px 0px 30px rgba(255, 255, 255,0.3))"
             }
           ],
@@ -239,39 +244,41 @@
           "txtDescription": "Generador de clases de TailWind, genera clases genéricas para agilizar el proceso de desarrollo."
         },
         {
+          "href": "https://google.com",
+
           "bg_color": "rgba(255, 82, 176, 0.03)",
           "border_color": "#FF52B0",
           "font_color": "#FF52B0",
-          "image": "Logo_DevFriends.svg",
+          "image": "general/Logo_DevFriends.svg",
           "title": "DevFriend",
           "filter_shadow": "drop-shadow(5px 5px 10px rgba(255, 82, 176, 0.3))",
           "imagesData": [
             {
-              "src": "/Railway_Logo.svg",
+              "src": "/technologies/Railway_Logo.svg",
               "filter_shadow": "drop-shadow(0px 0px 30px rgba(255, 255, 255,0.3))"
             },
             {
-              "src": "/MySql_Logo.svg",
+              "src": "/technologies/MySql_Logo.svg",
               "filter_shadow": "drop-shadow(0px 0px 30px rgba(0, 159, 202, 1))"
             },
             {
-              "src": "/Tailwind_Logo.svg",
+              "src": "/technologies/Tailwind_Logo.svg",
               "filter_shadow": "drop-shadow(0px 0px 30px rgba(0, 255, 212,0.9))"
             },
             {
-              "src": "/Express_Logo.svg",
+              "src": "/technologies/Express_Logo.svg",
               "filter_shadow": "drop-shadow(0px 0px 30px rgba(255, 255, 255,0.5))"
             },
             {
-              "src": "/Cloudinary_Logo.svg",
+              "src": "/technologies/Cloudinary_Logo.svg",
               "filter_shadow": "drop-shadow(0px 0px 30px rgba(52, 72, 197, 1))"
             },
             {
-              "src": "/Next_Logo.svg",
+              "src": "/technologies/Next_Logo.svg",
               "filter_shadow": "drop-shadow(0px 0px 30px rgba(255, 255, 255,0.3))"
             },
             {
-              "src": "/TS_Logo.svg",
+              "src": "/technologies/TS_Logo.svg",
               "filter_shadow": "drop-shadow(0px 0px 30px rgba(0, 122, 204, 0.5))"
             }
           ],

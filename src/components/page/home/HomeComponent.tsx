@@ -28,7 +28,7 @@ export const HomeComponent = () => {
             width={1000}
             height={1000}
             alt="Foto de perfil"
-            src={"/PerfilPhoto.png"}
+            src={"/general/PerfilPhoto.png"}
           />
         </div>
         <div className="logo-icons-container">
@@ -43,7 +43,7 @@ export const HomeComponent = () => {
               width={100}
               height={100}
               alt="Logo de Linkedin"
-              src={"/Linkedin.svg"}
+              src={"/general/Linkedin.svg"}
             ></Image>
           </motion.a>
           <motion.a
@@ -57,7 +57,7 @@ export const HomeComponent = () => {
               width={100}
               height={100}
               alt="Logo de GitHub"
-              src={"/GitHub.svg"}
+              src={"/technologies/GitHub.svg"}
             ></Image>
           </motion.a>
           <motion.div
@@ -69,7 +69,7 @@ export const HomeComponent = () => {
               width={100}
               height={100}
               alt="Logo de Gmail"
-              src={"/Gmail.svg"}
+              src={"/general/Gmail.svg"}
             ></Image>
           </motion.div>
         </div>

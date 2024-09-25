@@ -1,8 +1,12 @@
+import { Container } from '@/components/global'
+import { TechnologiesHome } from '@/components/page/technologies'
 import React from 'react'
 
 const page = () => {
   return (
-    <div>page</div>
+    <Container>
+      <TechnologiesHome />
+    </Container>
   )
 }
 

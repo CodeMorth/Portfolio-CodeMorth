@@ -14,6 +14,7 @@ export const PageTransition = ({ children }: PageTransitionProps) => {
       <motion.div
         className="overflow-x-hidden overflow-y-hidden"
         key={pathname}
+        transition={{duration:0.2}}
         variants={{
           initial: { opacity: 0, y: -1000 },
           animate: { opacity: 1, y: 0 },

@@ -44,6 +44,7 @@ export interface ProjectLanguage {
 }
 
 export interface ProjectCardType {
+  href:string
   bg_color: string
   border_color: string
   font_color: string

@@ -2,8 +2,8 @@
 import { useLanguage } from '@/Hooks'
 import React from 'react'
 import { ProjectCard } from '@/components/page/projects'
-import Link from 'next/link'
 import { ProjectCardType } from '@/interface/Language'
+import { Navigate } from '@/components/global'
 
 export const ProjectHome = () => {
   const { languageData } = useLanguage()
@@ -15,11 +15,7 @@ export const ProjectHome = () => {
         {languageData?.projectLanguage.projectCard.map(
           (data: ProjectCardType, index: number) => {
             return (
-              <Link
-                href="https://web-generador-de-clases-tailwind-electron.vercel.app/"
-                target="_blank"
-                key={index}
-              >
+              <Navigate href={data.href} key={index}>
                 <ProjectCard
                   bg_color={data.bg_color}
                   border_color={data.border_color}
@@ -31,7 +27,7 @@ export const ProjectHome = () => {
                   leftOrigth={data.leftOrigth}
                   txtDescription={data.txtDescription}
                 />
-              </Link>
+              </Navigate>
             )
           }
         )}
