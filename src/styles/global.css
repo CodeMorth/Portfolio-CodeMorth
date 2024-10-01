@@ -32,7 +32,7 @@ html{
 }
 
 ::-webkit-scrollbar {
-  width: 5px; /* Ancho de la barra lateral */
+  width: 12px; /* Ancho de la barra lateral */
 }
 
 ::-webkit-scrollbar-track {

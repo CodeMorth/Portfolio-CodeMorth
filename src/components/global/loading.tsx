@@ -52,3 +52,5 @@ export const Loading = () => {
     ></div>
   )
 }
+
+// [#FFC300]

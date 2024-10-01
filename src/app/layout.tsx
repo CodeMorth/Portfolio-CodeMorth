@@ -10,7 +10,7 @@ interface RootLayoutProps {
 export default function RootLayout({ children }: RootLayoutProps) {
   return (
     <html lang="es">
-      <body className="h-full overflow-x-hidden overflow-y-hidden">
+      <body className="h-full overflow-x-hidden">
         <LanguageProviderContext>
           <PrimeReactProvider>
             <NavigationContextProvider>

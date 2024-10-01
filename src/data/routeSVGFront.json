@@ -1,0 +1,45 @@
+{
+  "routeSVGFront": [
+    { "url": "/technologies/HTML5_Logo.svg", "scale":{ "movile": 0.48, "laptop": 0.36 } },
+    { "url": "/technologies/TS_Logo.svg", "scale":{ "movile": 0.48, "laptop": 0.37 } },
+    { "url": "/technologies/Next_Logo.svg", "scale":{ "movile": 0.6, "laptop": 0.47 } },
+    { "url": "/technologies/ReactRouter_Logo.svg", "scale":{ "movile": 1.1, "laptop": 0.55 } },
+    { "url": "/technologies/CSS_Logo.svg", "scale":{ "movile": 0.3, "laptop": 0.25 } },
+    { "url": "/technologies/Redux_Logo.svg", "scale":{ "movile": 0.58, "laptop": 0.4 } },
+    { "url": "/technologies/FramerMotion_Logo.svg", "scale":{ "movile": 1, "laptop": 1} },
+    { "url": "/technologies/Zod_Logo.svg", "scale":{ "movile": 1, "laptop": 0.8 } },    
+    { "url": "/technologies/Tailwind_Logo.svg", "scale":{ "movile": 0.3, "laptop": 0.18 } },
+    { "url": "/technologies/PostCss_Logo.svg", "scale":{ "movile": 1.2, "laptop": 1 } },
+    { "url": "/technologies/React_Logo.svg", "scale":{ "movile": 0.26, "laptop": 0.18 } }
+  ],
+  "routeSVGMiddle": [
+    { "url": "/technologies/Docker_Logo.svg", "scale": { "movile": 0.85, "laptop": 0.65 } },
+    { "url": "/technologies/Cloudinary_Logo.svg", "scale": { "movile": 0.26, "laptop": 0.18 } },
+    { "url": "/technologies/GitHub.svg", "scale": { "movile": 0.82, "laptop": 0.74 } },
+    { "url": "/technologies/Postman_Logo.svg", "scale": { "movile": 0.5, "laptop": 0.42 } },
+    { "url": "/technologies/Git_Logo.svg", "scale": { "movile": 1, "laptop": 0.9 } },    
+    { "url": "/technologies/JS_Logo.svg", "scale": { "movile": 0.16, "laptop": 0.12 } }
+  ],
+  "routeSVGBack": [
+    { "url": "/technologies/Nodemon_Logo.svg", "scale": { "movile": 0.77, "laptop": 0.63 } },
+    { "url": "/technologies/Express_Logo.svg", "scale": { "movile": 0.8, "laptop": 0.8 } },
+    { "url": "/technologies/Railway_Logo.svg", "scale": { "movile": 0.37, "laptop": 0.3 } },
+    { "url": "/technologies/MySql_Logo.svg", "scale": { "movile": 0.55, "laptop": 0.5 } },
+    { "url": "/technologies/MariaDB_Logo.svg", "scale": { "movile": 0.88, "laptop": 0.9 } },
+    { "url": "/technologies/JSONWebToken_Logo.svg", "scale": { "movile": 0.86, "laptop": 0.7 } }
+  ],
+  "routeSVGOutLeft":[
+    { "url": "/technologies/NPM_Logo.svg", "scale":{ "movile": 0.9, "laptop": 0.73 } },
+    { "url": "/technologies/Prettier_Logo.svg", "scale":{ "movile": 1.1, "laptop": 0.9 } },
+    { "url": "/technologies/Eslint_Logo.svg", "scale":{ "movile": 1.2, "laptop": 0.8 } },
+    { "url": "/technologies/NodeJs_Logo.svg", "scale": { "movile": 0.48, "laptop": 0.38 } },
+    { "url": "/technologies/Figma_Logo.svg", "scale":{ "movile": 1, "laptop": 0.88 } }
+  ],
+  "routeSVGOutRight":[
+    { "url": "/technologies/PNPM_Logo.svg", "scale":{ "movile": 1.2, "laptop": 1 } },
+    { "url": "/technologies/Linux_Logo.svg", "scale": {"movile": 1.1, "laptop": 1 } },
+    { "url": "/technologies/VSCode_Logo.svg", "scale": {"movile": 1.1, "laptop": 0.85 } },
+    { "url": "/technologies/GitLab_Logo.svg", "scale": {"movile": 1, "laptop": 0.9 } },
+    { "url": "/technologies/Electron_Logo.svg", "scale":{ "movile": 0.4, "laptop": 0.3 } }
+  ]
+}
