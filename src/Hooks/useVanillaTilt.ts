@@ -1,31 +1,32 @@
 import { useEffect, useRef } from 'react'
-import VanillaTilt from 'vanilla-tilt'
+import VanillaTilt from 'vanilla-tilt' // Importing VanillaTilt library for tilt effect
 
 interface TiltHTMLElement extends HTMLDivElement {
   vanillaTilt: VanillaTilt
 }
 
+// Custom hook to apply VanillaTilt effect to a referenced element
 export const useVanillaTilt = (options = {}) => {
-  const tiltRef = useRef<TiltHTMLElement>(null)
+  const tiltRef = useRef<TiltHTMLElement>(null) // Creating a ref to hold the HTML element
 
   useEffect(() => {
-    const { current } = tiltRef
+    const { current } = tiltRef // Destructuring to get the current element from the ref
 
     if (current) {
-      // Inicializa VanillaTilt solo si el elemento está presente
-      const tilt:any = VanillaTilt.init(current, options)
+      // Initialize VanillaTilt only if the element is present
+      const tilt: any = VanillaTilt.init(current, options) // Initializing VanillaTilt with provided options
       
-      // Guardar la instancia en la propiedad vanillaTilt del elemento
+      // Store the instance in the vanillaTilt property of the element
       current.vanillaTilt = tilt
 
-      // Limpia el efecto al desmontar el componente
+      // Cleanup function to destroy the tilt instance when the component unmounts
       return () => {
         if (current?.vanillaTilt) {
-          current.vanillaTilt.destroy()
+          current.vanillaTilt.destroy() // Destroy the VanillaTilt instance
         }
       }
     }
-  }, [options])
+  }, [options]) // Dependency array: re-run effect if options change
 
   return tiltRef
 }

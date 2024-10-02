@@ -39,7 +39,7 @@ export interface NavbarLanguage {
 }
 
 export interface ProjectLanguage {
-  tittle: string
+  title: string
   projectCard: ProjectCard[]
 }
 

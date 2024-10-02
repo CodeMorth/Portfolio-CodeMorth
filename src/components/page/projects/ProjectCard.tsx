@@ -1,84 +1,100 @@
 'use client'
-import { useRef } from 'react'
+import { useCallback, useMemo, useRef } from 'react'
 import { useHammer, useVanillaTilt, useWindowSize } from '@/Hooks'
 import { ImageData, ProjectCardType } from '@/interface/app/Project'
 import { transformationsHover } from '@/components/page/projects'
 import Image from 'next/image'
-import { limitRotation } from '@/utils'
+import { calculateRotations } from '@/utils/technologies'
 
+// ProjectCard component to display project details with tilt and hover effects
 export const ProjectCard = ({
-  image,
-  bg_color,
-  border_color,
-  font_color,
-  title,
-  filter_shadow,
-  imagesData,
-  leftOrigth,
-  txtDescription
+  image,          // The main image of the project
+  bg_color,       // Background color of the card
+  border_color,   // Border color of the card
+  font_color,     // Font color of the text in the card
+  title,          // Title of the project
+  filter_shadow,  // Shadow filter applied to the images/icons
+  imagesData,     // Array of image data for icons
+  leftOrigth,     // Determines the alignment (left or right) for text
+  txtDescription  // Description text of the project
 }: ProjectCardType) => {
+  
+  // Initialize VanillaTilt for the project card
   const tiltRef = useVanillaTilt({
-    max: 45,
-    speed: 10000,
-    scale: 1.3
+    max: 45,   // Max tilt angle
+    speed: 10000, // Speed of the tilt effect
+    scale: 1.3  // Scale effect for the card
   })
 
-  const imageMainRef = useRef<HTMLImageElement>(null)
-  const imagesIcon = useRef<(HTMLDivElement | null)[]>([])
-  const iconsRefs = useRef<(HTMLDivElement | null)[]>([])
-  const textRef = useRef<HTMLDivElement | null>(null)
+  // Refs for different elements in the card
+  const imageMainRef = useRef<HTMLImageElement>(null) // Main image ref
+  const imagesIcon = useRef<(HTMLDivElement | null)[]>([]) // Refs for icons
+  const iconsRefs = useRef<(HTMLDivElement | null)[]>([]) // Refs for icon containers
+  const textRef = useRef<HTMLDivElement | null>(null) // Ref for text element
+
+  // Get window size and mobile detection
   const { windowWidth, movile } = useWindowSize()
 
-  // Define los límites máximos de inclinación (puedes ajustarlos según lo que necesites)
-  const maxTilt = 30 // Grados máximos de inclinación
-  const movility = 200 // Movilidad
+  // Function to handle transformations on hover (with or without hover)
+  const transformation = useCallback(
+    (hover: boolean = true) => {
+      transformationsHover({
+        hover,
+        imageMainRef,
+        iconsRefs,
+        imagesIcon,
+        imagesData,
+        windowWidth,
+        filter_shadow,
+        textRef,
+        movile,
+        leftOrigth
+      })
+    },
+    [imagesData, windowWidth, movile, filter_shadow, leftOrigth]
+  )
 
-  // Define los gestos y sus callbacks
-  const gestures = {
-    // Maneja el evento de `pan` para actualizar el estilo del elemento
-    pan: (event: HammerInput) => {
-      transformation(true)
+  // Handle panning gestures (dragging), calculate rotations based on deltaX, deltaY
+  const handlePan = useCallback(
+    (event: HammerInput) => {
+      transformation(true)  // Trigger hover transformations
       const { deltaX, deltaY } = event
+      const { rotateX, rotateY } = calculateRotations(
+        deltaX,    // Horizontal movement
+        deltaY,    // Vertical movement
+        windowWidth,
+        200,       // Mobility/sensitivity factor
+        30         // Maximum tilt
+      )
 
-      // Calcula las rotaciones basadas en el movimiento del pan
-      let rotateY = (deltaX / windowWidth) * movility // Movimiento horizontal afecta a rotateY
-      let rotateX = -(deltaY / windowWidth) * movility // Movimiento vertical afecta a rotateX
-
-      // Limitar las rotaciones para que no excedan el máximo permitido
-      rotateY = limitRotation(rotateY, maxTilt)
-      rotateX = limitRotation(rotateX, maxTilt)
-
-      // Aplica las transformaciones de rotación al estilo del elemento
+      // Apply the rotation to the element using VanillaTilt
       if (tiltRef.current) {
         tiltRef.current.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg)`
       }
     },
-    // Restablecer el estado del tilt al terminar el pan
-    panend: () => {
-      transformation(false)
-      if (tiltRef.current) {
-        tiltRef.current.style.transform = `rotateX(0deg) rotateY(0deg)`
-      }
+    [windowWidth, tiltRef, transformation]
+  )
+
+  // Reset the tilt to default (no rotation) when the gesture ends
+  const resetTilt = useCallback(() => {
+    transformation(false)
+    if (tiltRef.current) {
+      tiltRef.current.style.transform = `rotateX(0deg) rotateY(0deg)`
     }
-  }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [])
 
-  //Hook para simular los gestos
+  // Define gestures (pan and panend) for Hammer.js
+  const gestures = useMemo(
+    () => ({
+      pan: handlePan,       // Handle the pan gesture
+      panend: resetTilt     // Reset the tilt when panning ends
+    }),
+    [handlePan, resetTilt]
+  )
+
+  // Initialize Hammer.js for touch gestures
   useHammer(tiltRef, gestures)
-
-  const transformation = (hover: boolean = true) => {
-    transformationsHover({
-      hover,
-      imageMainRef,
-      iconsRefs,
-      imagesIcon,
-      imagesData,
-      windowWidth,
-      filter_shadow,
-      textRef,
-      movile,
-      leftOrigth
-    })
-  }
 
   return (
     <div
@@ -89,13 +105,10 @@ export const ProjectCard = ({
         color: font_color
       }}
       className="ProjectCard"
-      onMouseEnter={() => {
-        transformation(true)
-      }}
-      onMouseLeave={() => {
-        transformation(false)
-      }}
+      onMouseEnter={() => transformation(true)}  // Hover in: apply transformation
+      onMouseLeave={() => transformation(false)} // Hover out: remove transformation
     >
+      {/* Render icons for the project */}
       {imagesData.map((data: ImageData, index: number) => (
         <div
           ref={(ref) => {
@@ -108,7 +121,7 @@ export const ProjectCard = ({
             ref={(ref) => {
               imagesIcon.current[index] = ref
             }}
-            alt=""
+            alt={'Project icon'}
             src={data.src}
             width={100}
             height={100}
@@ -128,16 +141,16 @@ export const ProjectCard = ({
       >
         {txtDescription}
       </div>
-
       <div className="image-container">
         <Image
           ref={imageMainRef}
-          alt=""
+          alt={title}
           width={1000}
           height={1000}
           src={`/${image}`}
+          priority={true} // Optimize loading of the main image
         />
-      </div>
+      </div>      
       <h3>{title}</h3>
     </div>
   )

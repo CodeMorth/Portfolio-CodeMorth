@@ -63,7 +63,7 @@
       ]
     },
     "projectLanguage": {
-      "tittle": "PROJECTS",
+      "title": "PROJECTS",
       "projectCard": [
         {
           "href": "https://web-generador-de-clases-tailwind-electron.vercel.app/",
@@ -207,7 +207,7 @@
       ]
     },
     "projectLanguage": {
-      "tittle": "PROYECTOS",
+      "title": "PROYECTOS",
       "projectCard": [
         {
           "href": "https://web-generador-de-clases-tailwind-electron.vercel.app/",

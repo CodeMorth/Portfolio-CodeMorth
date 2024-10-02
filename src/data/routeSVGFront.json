@@ -1,45 +1,243 @@
 {
   "routeSVGFront": [
-    { "url": "/technologies/HTML5_Logo.svg", "scale":{ "movile": 0.48, "laptop": 0.36 } },
-    { "url": "/technologies/TS_Logo.svg", "scale":{ "movile": 0.48, "laptop": 0.37 } },
-    { "url": "/technologies/Next_Logo.svg", "scale":{ "movile": 0.6, "laptop": 0.47 } },
-    { "url": "/technologies/ReactRouter_Logo.svg", "scale":{ "movile": 1.1, "laptop": 0.55 } },
-    { "url": "/technologies/CSS_Logo.svg", "scale":{ "movile": 0.3, "laptop": 0.25 } },
-    { "url": "/technologies/Redux_Logo.svg", "scale":{ "movile": 0.58, "laptop": 0.4 } },
-    { "url": "/technologies/FramerMotion_Logo.svg", "scale":{ "movile": 1, "laptop": 1} },
-    { "url": "/technologies/Zod_Logo.svg", "scale":{ "movile": 1, "laptop": 0.8 } },    
-    { "url": "/technologies/Tailwind_Logo.svg", "scale":{ "movile": 0.3, "laptop": 0.18 } },
-    { "url": "/technologies/PostCss_Logo.svg", "scale":{ "movile": 1.2, "laptop": 1 } },
-    { "url": "/technologies/React_Logo.svg", "scale":{ "movile": 0.26, "laptop": 0.18 } }
+    {
+      "url": "/technologies/HTML5_Logo.svg",
+      "name": "HTML5",
+      "bgColor": "linear-gradient(90deg, rgba(227, 79, 38, 0.8) 0%, rgba(239, 101, 42, 0.8) 100%)",
+      "textColor": "#fff",
+      "scale": { "movile": 0.48, "laptop": 0.36 }
+    },
+    {
+      "url": "/technologies/TS_Logo.svg",
+      "name": "TypeScript",
+      "bgColor": "rgba(0, 139, 232, 0.8)",
+      "textColor": "#fff",
+      "scale": { "movile": 0.48, "laptop": 0.37 }
+    },
+    {
+      "url": "/technologies/Next_Logo.svg",
+      "name": "Next",
+      "bgColor": "rgba(0, 0, 0, 0.8)",
+      "textColor": "#fff",
+      "scale": { "movile": 0.6, "laptop": 0.47 }
+    },
+    {
+      "url": "/technologies/ReactRouter_Logo.svg",
+      "name": "React Router",
+      "bgColor": "linear-gradient(90deg, rgba(18, 18, 18, 0.8) 0%, rgba(244, 66, 80, 0.8) 100%)",
+      "textColor": "#121212",
+      "scale": { "movile": 1.1, "laptop": 0.85 }
+    },
+    {
+      "url": "/technologies/CSS_Logo.svg",
+      "name": "CSS",
+      "bgColor": "linear-gradient(90deg, rgba(12, 115, 184, 0.8) 0%, rgba(48, 169, 220, 0.8) 100%)",
+      "textColor": "#fff",
+      "scale": { "movile": 0.3, "laptop": 0.25 }
+    },
+    {
+      "url": "/technologies/Redux_Logo.svg",
+      "name": "Redux",
+      "bgColor": "rgba(118, 74, 188, 0.8)",
+      "textColor": "#fff",
+      "scale": { "movile": 0.88, "laptop": 0.4 }
+    },
+    {
+      "url": "/technologies/FramerMotion_Logo.svg",
+      "name": "Framer Motion",
+      "bgColor": "rgba(0, 0, 0, 0.8)",
+      "textColor": "#fff",
+      "scale": { "movile": 1, "laptop": 1 }
+    },
+    {
+      "url": "/technologies/Zod_Logo.svg",
+      "name": "Zod",
+      "bgColor": "linear-gradient(90deg, rgba(24, 37, 63, 0.8) 0%, rgba(48, 104, 183, 0.8) 100%)",
+      "textColor": "#fff",
+      "scale": { "movile": 1, "laptop": 0.8 }
+    },
+    {
+      "url": "/technologies/Tailwind_Logo.svg",
+      "name": "Tailwind",
+      "bgColor": "linear-gradient(90deg, rgba(34, 152, 189, 0.8) 0%, rgba(14, 215, 181, 0.8) 100%)",
+      "textColor": "#fff",
+      "scale": { "movile": 0.3, "laptop": 0.18 }
+    },
+    {
+      "url": "/technologies/PostCss_Logo.svg",
+      "name": "PostCss",
+      "bgColor": "linear-gradient(90deg, rgba(221, 55, 53, 0.8) 0%, rgba(221, 58, 10, 0.8) 100%)",
+      "textColor": "#fff",
+      "scale": { "movile": 1.2, "laptop": 1 }
+    },
+    {
+      "url": "/technologies/React_Logo.svg",
+      "name": "React",
+      "bgColor": "rgba(0, 216, 255, 0.8)",
+      "textColor": "#fff",
+      "scale": { "movile": 0.26, "laptop": 0.18 }
+    }
   ],
   "routeSVGMiddle": [
-    { "url": "/technologies/Docker_Logo.svg", "scale": { "movile": 0.85, "laptop": 0.65 } },
-    { "url": "/technologies/Cloudinary_Logo.svg", "scale": { "movile": 0.26, "laptop": 0.18 } },
-    { "url": "/technologies/GitHub.svg", "scale": { "movile": 0.82, "laptop": 0.74 } },
-    { "url": "/technologies/Postman_Logo.svg", "scale": { "movile": 0.5, "laptop": 0.42 } },
-    { "url": "/technologies/Git_Logo.svg", "scale": { "movile": 1, "laptop": 0.9 } },    
-    { "url": "/technologies/JS_Logo.svg", "scale": { "movile": 0.16, "laptop": 0.12 } }
+    {
+      "url": "/technologies/Docker_Logo.svg",
+      "name": "Docker",
+      "bgColor": "linear-gradient(90deg, rgba(0, 172, 211, 0.8) 0%, rgba(58, 77, 84, 0.8) 100%)",
+      "textColor": "#00000",
+      "scale": { "movile": 0.85, "laptop": 0.65 }
+    },
+    {
+      "url": "/technologies/Cloudinary_Logo.svg",
+      "name": "Cloudinary",
+      "bgColor": "rgba(52, 72, 197, 0.8)",
+      "textColor": "#fff",
+      "scale": { "movile": 0.26, "laptop": 0.18 }
+    },
+    {
+      "url": "/technologies/GitHub.svg",
+      "name": "GitHub",
+      "bgColor": "rgba(255, 255, 255, 0.8)",
+      "textColor": "#000000",
+      "scale": { "movile": 0.82, "laptop": 0.74 }
+    },
+    {
+      "url": "/technologies/Postman_Logo.svg",
+      "name": "Postman",
+      "bgColor": "rgba(255, 100, 0, 0.8)",
+      "textColor": "#fff",
+      "scale": { "movile": 0.8, "laptop": 0.42 }
+    },
+    {
+      "url": "/technologies/Git_Logo.svg",
+      "name": "Git",
+      "bgColor": "rgba(222, 76, 54, 0.8)",
+      "textColor": "#fff",
+      "scale": { "movile": 1, "laptop": 0.9 }
+    },
+    {
+      "url": "/technologies/JS_Logo.svg",
+      "name": "JavaScript",
+      "bgColor": "rgba(255, 195, 0, 0.8)",
+      "textColor": "#fff",
+      "scale": { "movile": 0.16, "laptop": 0.12 }
+    }
   ],
   "routeSVGBack": [
-    { "url": "/technologies/Nodemon_Logo.svg", "scale": { "movile": 0.77, "laptop": 0.63 } },
-    { "url": "/technologies/Express_Logo.svg", "scale": { "movile": 0.8, "laptop": 0.8 } },
-    { "url": "/technologies/Railway_Logo.svg", "scale": { "movile": 0.37, "laptop": 0.3 } },
-    { "url": "/technologies/MySql_Logo.svg", "scale": { "movile": 0.55, "laptop": 0.5 } },
-    { "url": "/technologies/MariaDB_Logo.svg", "scale": { "movile": 0.88, "laptop": 0.9 } },
-    { "url": "/technologies/JSONWebToken_Logo.svg", "scale": { "movile": 0.86, "laptop": 0.7 } }
+    {
+      "url": "/technologies/Nodemon_Logo.svg",
+      "name": "Nodemon",
+      "bgColor": "linear-gradient(90deg, rgba(79, 77, 63, 0.8) 0%, rgba(118, 208, 75, 0.8) 100%)",
+      "textColor": "#fff",
+      "scale": { "movile": 0.77, "laptop": 0.63 }
+    },
+    {
+      "url": "/technologies/Express_Logo.svg",
+      "name": "Express",
+      "bgColor": "rgba(0, 0, 0, 0.8)",
+      "textColor": "#fff",
+      "scale": { "movile": 0.8, "laptop": 0.8 }
+    },
+    {
+      "url": "/technologies/Railway_Logo.svg",
+      "name": "Railway",
+      "bgColor": "rgba(255, 255, 255, 0.8)",
+      "textColor": "#000000",
+      "scale": { "movile": 0.37, "laptop": 0.3 }
+    },
+    {
+      "url": "/technologies/MySql_Logo.svg",
+      "name": "MySql",
+      "bgColor": "rgba(0, 84, 107, 0.8)",
+      "textColor": "#fff",
+      "scale": { "movile": 0.85, "laptop": 0.6 }
+    },
+    {
+      "url": "/technologies/MariaDB_Logo.svg",
+      "name": "MariaDB",
+      "bgColor": "rgba(0, 53, 69, 0.8)",
+      "textColor": "#fff",
+      "scale": { "movile": 0.88, "laptop": 0.9 }
+    },
+    {
+      "url": "/technologies/JSONWebToken_Logo.svg",
+      "name": "JSON Web Token",
+      "bgColor": "linear-gradient(90deg, rgba(0, 185, 241, 0.8) 0%, rgba(0, 242, 230, 0.8) 25%, rgba(214, 58, 255, 0.8) 50%, rgba(251, 1, 91, 0.8) 75%, rgba(255, 255, 255, 0.8) 100%)",
+      "textColor": "#fff",
+      "scale": { "movile": 0.86, "laptop": 0.7 }
+    }
   ],
-  "routeSVGOutLeft":[
-    { "url": "/technologies/NPM_Logo.svg", "scale":{ "movile": 0.9, "laptop": 0.73 } },
-    { "url": "/technologies/Prettier_Logo.svg", "scale":{ "movile": 1.1, "laptop": 0.9 } },
-    { "url": "/technologies/Eslint_Logo.svg", "scale":{ "movile": 1.2, "laptop": 0.8 } },
-    { "url": "/technologies/NodeJs_Logo.svg", "scale": { "movile": 0.48, "laptop": 0.38 } },
-    { "url": "/technologies/Figma_Logo.svg", "scale":{ "movile": 1, "laptop": 0.88 } }
+  "routeSVGOutLeft": [
+    {
+      "url": "/technologies/NPM_Logo.svg",
+      "name": "NPM",
+      "bgColor": "rgba(203, 56, 55, 0.8)",
+      "textColor": "#fff",
+      "scale": { "movile": 0.9, "laptop": 0.73 }
+    },
+    {
+      "url": "/technologies/Prettier_Logo.svg",
+      "name": "Prettier",
+      "bgColor": "linear-gradient(90deg, rgba(77, 97, 110, 0.8) 0%, rgba(86, 179, 180, 0.8) 25%, rgba(247, 185, 62, 0.8) 50%, rgba(191, 133, 191, 0.8) 75%, rgba(234, 94, 94, 0.8) 100%)",
+      "textColor": "#fff",
+      "scale": { "movile": 1.1, "laptop": 0.9 }
+    },
+    {
+      "url": "/technologies/Eslint_Logo.svg",
+      "name": "Eslint",
+      "bgColor": "linear-gradient(90deg, rgba(75, 50, 195, 0.8) 0%, rgba(128, 128, 242, 0.8) 100%)",
+      "textColor": "#fff",
+      "scale": { "movile": 1.2, "laptop": 0.8 }
+    },
+    {
+      "url": "/technologies/NodeJs_Logo.svg",
+      "name": "Node.Js",
+      "bgColor": "linear-gradient(90deg, rgba(65, 135, 63, 0.8) 14%, rgba(84, 160, 68, 0.8) 40%, rgba(102, 184, 72, 0.8) 71%, rgba(108, 192, 74, 0.8) 91%)",
+      "textColor": "#fff",
+      "scale": { "movile": 0.48, "laptop": 0.38 }
+    },
+    {
+      "url": "/technologies/Figma_Logo.svg",
+      "name": "Figma",
+      "bgColor": "linear-gradient(90deg, rgba(10, 207, 131, 0.8) 0%, rgba(26, 188, 254, 0.8) 25%, rgba(162, 89, 255, 0.8) 50%, rgba(242, 78, 30, 0.8) 75%, rgba(255, 114, 98, 0.8) 100%)",
+      "textColor": "#fff",
+      "scale": { "movile": 1, "laptop": 0.88 }
+    }
   ],
-  "routeSVGOutRight":[
-    { "url": "/technologies/PNPM_Logo.svg", "scale":{ "movile": 1.2, "laptop": 1 } },
-    { "url": "/technologies/Linux_Logo.svg", "scale": {"movile": 1.1, "laptop": 1 } },
-    { "url": "/technologies/VSCode_Logo.svg", "scale": {"movile": 1.1, "laptop": 0.85 } },
-    { "url": "/technologies/GitLab_Logo.svg", "scale": {"movile": 1, "laptop": 0.9 } },
-    { "url": "/technologies/Electron_Logo.svg", "scale":{ "movile": 0.4, "laptop": 0.3 } }
+  "routeSVGOutRight": [
+    {
+      "url": "/technologies/PNPM_Logo.svg",
+      "name": "PNPM",
+      "bgColor": "linear-gradient(90deg, rgba(249, 173, 0, 0.8) 50%, rgba(255, 255, 255, 0.8) 100%)",
+      "textColor": "#fff",
+      "scale": { "movile": 1.2, "laptop": 1 }
+    },
+    {
+      "url": "/technologies/Linux_Logo.svg",
+      "name": "Linux",
+      "bgColor": "linear-gradient(90deg, rgba(0, 0, 0, 0.8) 0%, rgba(230, 140, 63, 0.8) 15%, rgba(255, 166, 63, 0.8) 35%, rgba(255, 255, 0, 0.8) 55%, rgba(255, 238, 215, 0.8) 75%, rgba(255, 255, 255, 0.8) 100%)",
+      "textColor": "#fff",
+      "scale": { "movile": 1.1, "laptop": 1 }
+    },
+    {
+      "url": "/technologies/VSCode_Logo.svg",
+      "name": "VSCode",
+      "bgColor": "linear-gradient(90deg, rgba(16, 112, 179, 0.8) 0%, rgba(36, 41, 56, 0.8) 100%)",
+      "textColor": "#fff",
+      "scale": { "movile": 1.1, "laptop": 0.85 }
+    },
+    {
+      "url": "/technologies/GitLab_Logo.svg",
+      "name": "GitLab",
+      "bgColor": "linear-gradient(90deg, rgba(252, 109, 38, 0.8) 0%, rgba(226, 67, 41, 0.8) 50%, rgba(252, 163, 38, 0.8) 100%)",
+      "textColor": "#fff",
+      "scale": { "movile": 1, "laptop": 0.9 }
+    },
+    {
+      "url": "/technologies/Electron_Logo.svg",
+      "name": "Electron",
+      "bgColor": "linear-gradient(90deg, rgba(162, 236, 251, 0.8) 0%, rgba(47, 50, 66, 0.8) 100%)",
+      "textColor": "#fff",
+      "scale": { "movile": 0.4, "laptop": 0.3 }
+    }
   ]
 }

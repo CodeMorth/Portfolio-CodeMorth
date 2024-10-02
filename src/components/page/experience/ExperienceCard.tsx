@@ -1,19 +1,20 @@
 import Image from 'next/image'
 
+// Define the interface for the props that ExperienceCard will receive
 interface ExperienceCardProps {
   title: string
   subtitle: string
   alt: string
-  src: string
+  src: string // The source URL of the image
   description: string
 }
 
 export const ExperienceCard = ({
-  title,
-  subtitle,
-  alt,
-  src,
-  description
+  title, // Destructure title from props
+  subtitle, // Destructure subtitle from props
+  alt, // Destructure alt from props
+  src, // Destructure src from props
+  description // Destructure description from props
 }: ExperienceCardProps) => {
   return (
     <article className="ExperienceCard">

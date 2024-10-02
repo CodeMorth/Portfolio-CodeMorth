@@ -8,7 +8,10 @@ export interface RouteSVGType {
 
 export interface RouteSVG {
   url:   string;
+  name:  string;
   scale: Scale;
+  bgColor?: string;
+  textColor?: string;
 }
 
 export interface Scale {

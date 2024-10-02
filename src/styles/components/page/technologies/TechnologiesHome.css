@@ -4,7 +4,7 @@
   .front-container,
   .back-container,
   .end-container {
-    @apply absolute flex justify-center items-center w-full pointer-events-none ;
+    @apply absolute flex justify-center items-center w-full pointer-events-none;
 
     @screen laptop {
       padding-top: calc(96px * var(--scale));
@@ -14,7 +14,7 @@
   .front,
   .back,
   .end {
-    @apply flex text-5xl font-bold justify-center items-center w-full ;
+    @apply flex text-5xl font-bold justify-center items-center w-full;
 
     text-shadow: 0px 0px 10px black;
 
@@ -32,10 +32,8 @@
   .front {
     @apply text-white  justify-center items-start;
 
-    @screen tablet{
-
-      @apply !mb-[10rem] !mt-0  ;
-
+    @screen tablet {
+      @apply !mb-[10rem] !mt-0;
     }
 
     @screen laptop {
@@ -49,9 +47,7 @@
     @apply text-white  justify-center items-end;
 
     @screen tablet {
-
-      @apply !mt-[53rem] ;
-
+      @apply !mt-[53rem];
     }
 
     @screen laptop {
@@ -62,12 +58,10 @@
   }
 
   .end {
-    @apply text-white   justify-center items-center opacity-70; 
+    @apply text-white   justify-center items-center opacity-70;
 
     @screen tablet {
-
-      @apply mt-[23rem] ;
-
+      @apply mt-[23rem];
     }
 
     @screen laptop {
@@ -77,21 +71,6 @@
 
   .front-letter-container {
     @apply w-full bg-red-400;
-  }
-
-  .border-letter-white {
-    text-shadow: -1px -1px 0px white, 1px -1px 0px white, -1px 1px 0px white,
-      1px 1px 0px white; /* Bordes alrededor del texto */
-  }
-
-  .border-letter-blue {
-    text-shadow: -1px -1px 0px #007acc, 1px -1px 0px #007acc,
-      -1px 1px 0px #007acc, 1px 1px 0px #007acc; /* Bordes alrededor del texto */
-  }
-
-  .border-letter-green {
-    text-shadow: -1px -1px 0px #ffc300, 1px -1px 0px #ffc300,
-      -1px 1px 0px #ffc300, 1px 1px 0px #ffc300; /* Bordes alrededor del texto */
   }
 
   .canvas-container {
@@ -105,4 +84,18 @@
       padding-top: calc(6.2rem * var(--scale));
     }
   }
+
+  .text-hover {
+    @screen laptop {
+      @apply absolute text-white pointer-events-none z-10;
+
+      border-radius: calc(0.5rem * var(--scale));
+      padding-left: calc(1rem * var(--scale));
+      padding-right: calc(1rem * var(--scale));
+      padding-top: calc(0.5rem * var(--scale));
+      padding-bottom: calc(0.5rem * var(--scale));
+      font-size: calc(1.3rem * var(--scale));
+    }
+  }
+
 }

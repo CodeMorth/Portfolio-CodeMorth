@@ -1,5 +1,5 @@
 'use client'
-import React, { useEffect, useRef } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import Matter, {
   Engine,
   Render,
@@ -7,46 +7,69 @@ import Matter, {
   MouseConstraint,
   Mouse,
   Composite,
-  Bodies,
   Body,
-  Composites
+  Composites,
+  Query
 } from 'matter-js'
-import routeSVG from '@/data/routeSVGFront.json'
 import { useWindowSize } from '@/Hooks'
-import { circlesGenerator, constrainsArray } from '@/utils/technologies'
+import {
+  calculatePositionsCircles,
+  circlesGenerator,
+  constrainsArray,
+  createBackgroundCircle,
+  perpetueMovement,
+  RenderLetters
+} from '@/utils/technologies'
 import MatterWrap from 'matter-wrap'
+import { BridgeBuilder } from '@/utils/technologies/BridgeBuilder'
+import {
+  circleBGBack,
+  circleBGFront,
+  configsCircles,
+  responsiveSettings
+} from '@/data/technologies'
+import { CustomBodyDefinition } from '@/interface/app/technologies'
 
+/**
+ * TechnologiesHome component: renders a canvas with dynamic physics-based interactions using Matter.js.
+ * The component adapts to different screen sizes and generates a bridge with circular shapes that float and interact.
+ */
 export const TechnologiesHome: React.FC = () => {
-  const { windowWidth, windowHeight, movile, tablet } = useWindowSize()
+  const { windowWidth, windowHeight, movile, tablet } = useWindowSize() // Get current window size and device type from custom hook.
 
-  const sceneRef = useRef<HTMLDivElement>(null)
-  const engineRef = useRef<Engine | null>(null)
-  const runnerRef = useRef<Runner | null>(null)
-  const circlesRef = useRef<any[]>([]) // Usamos un ref para almacenar las referencias a los círculos
+  const sceneRef = useRef<HTMLDivElement>(null) // Ref to the div where the canvas will be rendered.
+  const engineRef = useRef<Engine | null>(null) // Ref to the Matter.js engine.
+  const runnerRef = useRef<Runner | null>(null) // Ref to the Matter.js runner.
+  const circlesRef = useRef<Body[]>([]) // Ref to store references to the floating circles (Matter.js bodies).
+  const [nameCircle, setnameCircle] = useState(null)
+  const [tooltipPosition, setTooltipPosition] = useState({ x: 0, y: 0 })
+  const [hoverBgColor, setHoverBgColor] = useState(null)
+  const [hoverTextColor, setHoverTextColor] = useState(null)
 
+  // Responsive width calculations for different devices (mobile, tablet, laptop).
   const windowWidthMovile = windowWidth > 640 ? 640 : windowWidth
   const windowWidthLaptop = windowWidth > 870 ? 890 : windowWidth
 
   useEffect(() => {
+    // Load the MatterWrap plugin dynamically to allow wrapping bodies across the edges of the canvas.
     try {
       if (typeof MatterWrap !== 'undefined') {
-        // either use by name from plugin registry (Browser global)
         Matter.use('matter-wrap')
       } else {
-        // or require and use the plugin directly (Node.js, Webpack etc.)
         Matter.use(require('matter-wrap'))
       }
-    } catch (e) {
-      // could not require the plugin or install needed
-    }
+    } catch (e) {}
 
+    // Create a new Matter.js engine.
     const engine = Engine.create()
     engineRef.current = engine
     const world = engine.world
 
+    // Disable gravity in the engine to create a floating effect for the objects.
     engine.gravity.x = 0
     engine.gravity.y = 0
 
+    // Set canvas size based on device type (mobile, tablet, or desktop).
     const heightResponsive = movile ? 900 : tablet ? 1350 : windowHeight - 100
     const widthResponsive = movile
       ? windowWidthMovile
@@ -54,257 +77,189 @@ export const TechnologiesHome: React.FC = () => {
       ? windowWidthLaptop
       : windowWidth
 
+    // Initialize the Matter.js renderer to render the physics simulation onto the canvas.
     const render = Render.create({
-      element: sceneRef.current as HTMLDivElement,
+      element: sceneRef.current as HTMLDivElement, // Attach the canvas to the sceneRef element.
       engine: engine,
       options: {
         width: widthResponsive,
         height: heightResponsive,
         showAngleIndicator: false,
-        wireframes: false, // Asegúrate de que las texturas sean visibles
+        wireframes: false,
         background: '#000814'
-      }
+      } // Canvas options including dimensions and background color.
     })
 
+    // Start rendering the Matter.js scene.
     Render.run(render)
 
     const runner = Runner.create()
     runnerRef.current = runner
-    Runner.run(runner, engine)
+    Runner.run(runner, engine) // Start the physics simulation.
 
-    // add bodies
-    const numberOfRectangles = movile ? 65 : tablet ? 56 : 52
-    const group = Body.nextGroup(true)
+    // Device-specific settings for bridge creation and positioning.
+    const deviceSettings = movile
+      ? responsiveSettings.movile
+      : tablet
+      ? responsiveSettings.tablet
+      : responsiveSettings.desktop
+    const { numberOfRectangles, radius, leftPosition, rightPosition } =
+      deviceSettings
 
-    const bridgeLeft = Composites.stack(
+    const group = Body.nextGroup(true) // Create a collision group for the bridges.
+
+    // Create left and right bridges using the BridgeBuilder utility.
+    const bridgeLeft = BridgeBuilder(
       160,
       290,
       numberOfRectangles,
-      1,
-      0,
-      0,
-      (x: number, y: number) => {
-        return Bodies.rectangle(x, y, 53, 13, {
-          collisionFilter: { group: group },
-          chamfer: { radius: 10 },
-          density: 0.005,
-          frictionAir: 0,
-          render: {
-            fillStyle: '#0083ff'
-          }
-        })
-      }
+      '#0083ff',
+      group
     )
-
-    const bridgeRight = Composites.stack(
+    const bridgeRight = BridgeBuilder(
       160,
       290,
       numberOfRectangles,
-      1,
-      0,
-      0,
-      (x: number, y: number) => {
-        return Bodies.rectangle(x, y, 53, 13, {
-          collisionFilter: { group: group },
-          chamfer: { radius: 10 },
-          density: 0.005,
-          frictionAir: 0.05,
-          render: {
-            fillStyle: '#88ff50'
-          }
-        })
-      }
+      '#88ff50',
+      group
     )
 
+    // Chain the bridge segments together.
     Composites.chain(bridgeLeft, 0.3, 0, -0.3, 0, {
       stiffness: 1,
       length: 0.0001,
-      render: {
-        visible: false
-      }
+      render: { visible: false }
     })
-
     Composites.chain(bridgeRight, 0.3, 0, -0.3, 0, {
       stiffness: 1,
       length: 0.0001,
-      render: {
-        visible: false
-      }
+      render: { visible: false }
     })
 
-    const radiusResponsive = movile ? 350 : tablet ? 300 : 270
-    const positionXResponsiveLeft = movile ? 400 : tablet ? 400 : 250
-    const positionYResponsiveLeft = movile ? 120 : tablet ? 270 : 300
-    const positionXResponsiveRight = movile ? 400 : tablet ? 400 : 540
-    const positionYResponsiveRight = movile ? 470 : tablet ? 570 : 300
-
+    // Create constraints for the bridges.
     const constrainsLeft = constrainsArray(
-      positionXResponsiveLeft,
-      positionYResponsiveLeft,
+      leftPosition.x,
+      leftPosition.y,
       'left',
-      radiusResponsive,
+      radius,
       bridgeLeft,
       numberOfRectangles
     )
     const constrainsRight = constrainsArray(
-      positionXResponsiveRight,
-      positionYResponsiveRight,
+      rightPosition.x,
+      rightPosition.y,
       'right',
-      radiusResponsive,
+      radius,
       bridgeRight,
       numberOfRectangles
     )
 
+    // Add the bridges and constraints to the world.
     Composite.add(world, [bridgeLeft, ...constrainsLeft])
     Composite.add(world, [bridgeRight, ...constrainsRight])
 
-    const circlePositionXFront = movile ? 400 : tablet ? 390 : 150
-    const circlePositionYFront = movile ? -50 : tablet ? 170 : 250
-    const circlePositionXMiddle = movile ? 400 : tablet ? 390 : 390
-    const circlePositionYMiddle = movile ? 280 : tablet ? 450 : 220
-    const circlePositionXBack = movile ? 400 : tablet ? 360 : 660
-    const circlePositionYBack = movile ? 600 : tablet ? 700 : 280
-    const circlePositionXOutLeft = movile ? 400 : tablet ? 0 : -250
-    const circlePositionYOutLeft = movile ? -350 : tablet ? 390 : 250
-    const circlePositionXOutRight = movile ? 400 : tablet ? 0 : 960
-    const circlePositionYOutRight = movile ? 980 : tablet ? 400 : 280
-
-    // engine.timing.timeScale = 0.000001;
-
+    // Generate floating circles with some delay.
     setTimeout(() => {
-      // Tiempo de carga
-
-      circlesGenerator(
-        circlePositionXFront,
-        circlePositionYFront,
-        routeSVG.routeSVGFront,
-        circlesRef,
-        world,
-        movile,
-        tablet,
-        render
-      ) //Front
-      circlesGenerator(
-        circlePositionXMiddle,
-        circlePositionYMiddle,
-        routeSVG.routeSVGMiddle,
-        circlesRef,
-        world,
-        movile,
-        tablet,
-        render
-      ) //Middle
-      circlesGenerator(
-        circlePositionXBack,
-        circlePositionYBack,
-        routeSVG.routeSVGBack,
-        circlesRef,
-        world,
-        movile,
-        tablet,
-        render
-      ) //Back
-      circlesGenerator(
-        circlePositionXOutLeft,
-        circlePositionYOutLeft,
-        routeSVG.routeSVGOutLeft,
-        circlesRef,
-        world,
-        movile,
-        tablet,
-        render,
-        1000
-      ) //Out Left
-      circlesGenerator(
-        circlePositionXOutRight,
-        circlePositionYOutRight,
-        routeSVG.routeSVGOutRight,
-        circlesRef,
-        world,
-        movile,
-        tablet,
-        render,
-        1000
-      ) //Out Right
+      configsCircles.forEach(
+        ({ x, y, svg, spawnRangeX = 1, spawnRangeY = 1 }) => {
+          circlesGenerator(
+            calculatePositionsCircles(movile, tablet, x),
+            calculatePositionsCircles(movile, tablet, y),
+            svg,
+            circlesRef,
+            world,
+            movile,
+            tablet,
+            render,
+            spawnRangeX,
+            spawnRangeY
+          )
+        }
+      )
     }, 50)
 
+    // Create mouse controls for interactivity (dragging bodies).
     const mouse = Mouse.create(render.canvas)
     const mouseConstraint = MouseConstraint.create(engine, {
       mouse,
-      constraint: {
-        stiffness: 0.1,
-        render: { visible: false }
-      }
+      constraint: { stiffness: 0.1, render: { visible: false } }
     })
-
     Composite.add(world, mouseConstraint)
-
     render.mouse = mouse
 
-    Render.lookAt(render, {
-      min: { x: 0, y: 0 },
-      max: { x: 800, y: 600 }
+    // Actualizar el estado del hover en cada frame
+    Matter.Events.on(render, 'afterRender', () => {
+      const mousePosition = mouse.position
+      const bodies = circlesRef.current
+      let hoveredName = null
+      let hoveredBgColor = null
+      let hoveredTextColor = null
+
+      // Verificar si el mouse está sobre alguno de los círculos
+      bodies.forEach((circle: CustomBodyDefinition) => {
+        const result = Query.point([circle], mousePosition)
+        if (result.length > 0) {
+          hoveredName = circle.name
+          hoveredBgColor = circle.bgColor
+          hoveredTextColor = circle.textColor
+
+          const { x, y } = circle.position
+
+          setTooltipPosition({
+            x: x + 510,
+            y: y + 195 // Ajusta el desplazamiento hacia arriba
+          })
+        }
+      })
+
+      setnameCircle(hoveredName) // Actualizar el estado con el índice del círculo
+      setHoverBgColor(hoveredBgColor)
+      setHoverTextColor(hoveredTextColor)
     })
 
-    const perpetueMovement = (forceMagnitude: number) => {
-      circlesRef.current.forEach((circle) => {
-        const angle = Math.random() * Math.PI * 2 // Generar un ángulo aleatorio
-        const force = {
-          x: Math.cos(angle) * forceMagnitude,
-          y: Math.sin(angle) * forceMagnitude
-        }
+    // Set the camera to focus on a specific area of the canvas.
+    Render.lookAt(render, { min: { x: 0, y: 0 }, max: { x: 800, y: 600 } })
 
-        Body.applyForce(circle, circle.position, force) // Aplicar fuerza al círculo
-      })
-    }
+    // Create perpetual motion for the circles by adjusting their forces every 1ms.
+    const interval = setInterval(() => perpetueMovement(0.0001, circlesRef), 1)
 
-    // Llama a perpetueMovement en cada cuadro
-    const interval = setInterval(() => perpetueMovement(0.0001), 1) // Cada 1 ms, puedes ajustar el intervalo
+    // Background circle configuration based on the device type.
+    const bgFront = movile
+      ? circleBGFront.movile
+      : tablet
+      ? circleBGFront.tablet
+      : circleBGFront.desktop
+    const bgBack = movile
+      ? circleBGBack.movile
+      : tablet
+      ? circleBGBack.tablet
+      : circleBGBack.desktop
 
-    const circleBGFrontX = movile ? 400 : tablet ? 400 : 250
-    const circleBGFrontY = movile ? 120 : tablet ? 270 : 300
-    const circleBGBackX = movile ? 400 : tablet ? 400 : 540
-    const circleBGBackY = movile ? 480 : tablet ? 560 : 300
-    const radiusBGResponsive = movile ? 350 : tablet ? 300 : 270
-
+    // Add background circles to the world.
     Composite.add(
       world,
-      Bodies.circle(circleBGFrontX, circleBGFrontY, radiusBGResponsive, {
-        isStatic: true, // No se moverá
-        collisionFilter: {
-          group: -1, // No colisiona con ningún otro objeto
-          mask: 0, // No colisiona con nada
-          category: 0 // Cuerpo solo visual
-        },
-        render: {
-          fillStyle: 'rgba(0, 131, 255, 0.06)' // Color de relleno del círculo
-        }
-      })
+      createBackgroundCircle(
+        bgFront.x,
+        bgFront.y,
+        bgFront.radius,
+        bgFront.color
+      )
     )
-
     Composite.add(
       world,
-      Bodies.circle(circleBGBackX, circleBGBackY, radiusBGResponsive, {
-        isStatic: true, // No se moverá
-        collisionFilter: {
-          group: -1, // No colisiona con ningún otro objeto
-          mask: 0, // No colisiona con nada
-          category: 0 // Cuerpo solo visual
-        },
-        render: {
-          fillStyle: 'rgb(136, 255, 80, 0.06)' // Color de relleno del círculo
-        }
-      })
+      createBackgroundCircle(bgBack.x, bgBack.y, bgBack.radius, bgBack.color)
     )
 
+    // Clean up the Matter.js scene when the component unmounts.
     return () => {
-      clearInterval(interval) // Limpia el intervalo cuando el componente se desmonta
-      Render.stop(render)
-      Runner.stop(runner)
-      Engine.clear(engine)
-      Composite.clear(world, false)
-      render.canvas.remove()
-      render.textures = {}
+      clearInterval(interval) // Stop the motion interval.
+      Render.stop(render) // Stop rendering.
+      Runner.stop(runner) // Stop the physics simulation.
+      Engine.clear(engine) // Clear the engine.
+      Composite.clear(world, false) // Remove all objects from the world.
+      render.canvas.remove() // Remove the canvas from the DOM.
+      render.textures = {} // Clear textures.
+      setnameCircle(null)
     }
   }, [
     windowWidth,
@@ -313,7 +268,9 @@ export const TechnologiesHome: React.FC = () => {
     tablet,
     windowWidthLaptop,
     windowWidthMovile
-  ])
+  ]) // The effect depends on changes in window dimensions and device type.
+
+  console.log('nameCircle', nameCircle)
 
   return (
     <div className="TechnologiesHome">
@@ -326,17 +283,30 @@ export const TechnologiesHome: React.FC = () => {
           }}
           className="front"
         >
-          {Array.from('FRONT').map((letter, index) => (
-            <h1
-              style={{ color: index % 2 === 0 ? '#0083ff' : '#fff' }}
-              key={index}
-            >
-              {letter}
-            </h1>
-          ))}
+          {RenderLetters('FRONT', ['#0083ff', '#fff'])}
         </div>
       </div>
-      <div ref={sceneRef} className="canvas-container" />
+
+      <div
+        style={{ position: 'relative' }}
+        ref={sceneRef}
+        className="canvas-container"
+      >
+        {nameCircle !== null && (
+          <h1
+            className={`text-hover ${nameCircle}`}
+            style={{
+              left: tooltipPosition.x,
+              top: tooltipPosition.y,
+              background: hoverBgColor ?? '#fff',
+              color: hoverTextColor ?? '#000'
+            }}
+          >
+            {nameCircle}
+          </h1>
+        )}
+      </div>
+
       <div className="back-container">
         <div
           style={{
@@ -346,29 +316,13 @@ export const TechnologiesHome: React.FC = () => {
           }}
           className="back"
         >
-          {Array.from('BACK').map((letter, index) => (
-            <h1
-              style={{ color: index % 2 === 0 ? '#88ff50' : '#fff' }}
-              key={index}
-            >
-              {letter}
-            </h1>
-          ))}
+          {RenderLetters('BACK', ['#88ff50', '#fff'])}
         </div>
       </div>
+
       <div className="end-container">
         <div className="end">
-          {Array.from('END').map((letter, index) => (
-            <h1
-              style={{
-                color:
-                  index === 0 ? '#007ACC' : index === 1 ? '#fff' : '#88ff50'
-              }}
-              key={index}
-            >
-              {letter}
-            </h1>
-          ))}
+          {RenderLetters('END', ['#007ACC', '#fff', '#88ff50'])}
         </div>
       </div>
     </div>

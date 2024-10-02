@@ -1,32 +1,33 @@
 'use client'
 import { useEffect, useRef } from 'react'
 
-// Importa dinámicamente Hammer solo en el cliente
+// Custom hook to manage Hammer.js gestures on a specified element
 export const useHammer = (
-  elementRef: React.RefObject<HTMLElement>,
-  gestures: { [key: string]: (event: any) => void }
+  elementRef: React.RefObject<HTMLElement>, // Reference to the HTML element where gestures will be applied
+  gestures: { [key: string]: (event: any) => void } // Object containing gesture types and their corresponding callback functions
 ) => {
-  const hammerInstance = useRef<HammerManager | null>(null)
+  const hammerInstance = useRef<HammerManager | null>(null) // Ref to hold the Hammer.js instance
 
   useEffect(() => {
-    const element = elementRef.current
+    const element = elementRef.current // Get the current DOM element from the ref
 
-    // Verifica si estamos en el cliente
+    // Check if we are on the client side and if the element exists
     if (typeof window === 'undefined' || !element) return
 
-    // Importa dinámicamente Hammer en el lado del cliente
+    // Dynamically import Hammer.js only on the client side
     import('hammerjs').then((Hammer) => {
+      // Create a new Hammer instance for the specified element
       hammerInstance.current = new Hammer.default(element)
 
-      // Vincular los gestos con sus callbacks
+      // Bind the gestures with their corresponding callback functions
       Object.keys(gestures).forEach((gesture) => {
-        hammerInstance.current?.on(gesture, gestures[gesture])
+        hammerInstance.current?.on(gesture, gestures[gesture]) // Attach the event handler for each gesture
       })
     })
 
-    // Cleanup: Destruir instancia de Hammer cuando el componente se desmonta
+    // Cleanup: Destroy the Hammer instance when the component unmounts
     return () => {
-      hammerInstance.current?.destroy()
+      hammerInstance.current?.destroy() // Remove all gesture listeners and clean up the instance
     }
-  }, [elementRef, gestures])
+  }, [elementRef, gestures]) // Dependencies: re-run effect if elementRef or gestures change
 }
