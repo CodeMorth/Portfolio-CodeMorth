@@ -88,7 +88,7 @@
 
   .text-hover {
     @apply flex  justify-center items-center  rounded-lg p-4;
-    transition: width 0.2s ease-in; /* Anima el crecimiento del ancho */
+    transition: 0.27s ease-in; /* Anima el crecimiento del ancho */
 
     @screen laptop {
       @apply absolute  text-white pointer-events-none z-30;

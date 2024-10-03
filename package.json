@@ -9,6 +9,8 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@hookform/resolvers": "^3.9.0",
+    "axios": "^1.7.7",
     "framer-motion": "^11.1.9",
     "gsap": "^3.12.5",
     "hammerjs": "^2.0.8",
@@ -17,7 +19,11 @@
     "next": "14.2.3",
     "primereact": "^10.6.5",
     "react": "^18.3.1",
-    "vanilla-tilt": "^1.8.1"
+    "react-hook-form": "^7.53.0",
+    "resend": "^4.0.0",
+    "sonner": "^1.5.0",
+    "vanilla-tilt": "^1.8.1",
+    "zod": "^3.23.8"
   },
   "devDependencies": {
     "@types/hammerjs": "^2.0.45",

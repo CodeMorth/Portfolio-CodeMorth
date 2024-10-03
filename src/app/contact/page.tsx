@@ -1,8 +1,12 @@
+import { Container } from '@/components/global'
+import { ContactHome } from '@/components/page/contact'
 import React from 'react'
 
 const page = () => {
   return (
-    <div>page</div>
+    <Container>
+      <ContactHome/>
+    </Container>
   )
 }
 

@@ -70,7 +70,7 @@
           "bg_color": "rgba(4, 245, 242, 0.03)",
           "border_color": "#04F5F2",
           "font_color": "#04F5F2",
-          "image": "/general/Logo_TailwindConverter.svg",
+          "image": "general/Logo_TailwindConverter.svg",
           "title": "TailConf",
           "filter_shadow": "drop-shadow(5px 5px 10px rgba(4, 245, 242, 0.3))",
           "imagesData": [
@@ -100,7 +100,6 @@
         },
         {
           "href": "https://google.com",
-
           "bg_color": "rgba(255, 82, 176, 0.03)",
           "border_color": "#FF52B0",
           "font_color": "#FF52B0",

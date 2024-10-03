@@ -1,0 +1,51 @@
+.ContactHome {
+  @apply w-full h-full flex justify-center items-center;
+
+  form {
+    @apply border-[#FFC300] border-[0.1rem] w-auto h-auto flex flex-col justify-center items-center;
+
+    @screen laptop {
+      padding: calc(2rem * var(--scale));
+      gap: calc(2rem * var(--scale));
+      border-radius: calc(0.3rem * var(--scale));
+    }
+  }
+
+  label {
+    @apply w-full h-auto text-[#FFC300];
+  }
+
+  input,
+  textarea {
+    @apply w-full h-auto bg-transparent border-white border-[0.1rem]; 
+
+    @screen laptop {
+
+        width: calc(30rem * var(--scale));
+      padding: calc(0.5rem * var(--scale));
+    }
+  }
+
+  .input-container {
+    @apply w-full h-auto flex flex-col;
+
+    @screen laptop {
+      gap: calc(1rem * var(--scale));
+    }
+  }
+
+  button{
+
+    @apply bg-[#FFC300] text-[#000814] font-semibold ;
+
+    @screen laptop {
+        font-size: calc(1.2rem * var(--scale));
+        border-radius: calc(0.5rem * var(--scale));
+      padding: calc(0.5rem * var(--scale));
+      padding-left: calc(1.8rem * var(--scale));
+      padding-right: calc(1.8rem * var(--scale));
+    }
+
+  }
+
+}

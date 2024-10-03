@@ -2,6 +2,7 @@ import '@/styles/index.css'
 import { NavBar } from '@/components/global'
 import { LanguageProviderContext, NavigationContextProvider } from '@/Context'
 import { PrimeReactProvider } from 'primereact/api'
+import { Toaster } from 'sonner'
 
 interface RootLayoutProps {
   children: React.ReactNode
@@ -16,6 +17,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
             <NavigationContextProvider>
               <NavBar />
               {children}
+              <Toaster position="top-center" richColors />
             </NavigationContextProvider>
           </PrimeReactProvider>
         </LanguageProviderContext>
