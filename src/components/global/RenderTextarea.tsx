@@ -3,7 +3,7 @@ import { ErrorForm } from '@/components/global'
 
 export const RenderTextarea = (
   name: string,
-  languageData: any = '',
+  languageData: any ,
   errors: FieldErrors<FormData>,
   control: any
 ) => {
