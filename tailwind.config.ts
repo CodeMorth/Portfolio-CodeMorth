@@ -17,6 +17,7 @@ const config: Config = {
       screens: {
         phone: '414px',
         phonelg: '568px',
+        phoneToast:"600px",
         tablet: '768px',
         tabletlg: '960px',
         tabletxl: '1024px',

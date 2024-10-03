@@ -1,20 +1,14 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
 
-
-html{
-
-  @apply h-full ;
-
+html {
+  @apply h-full;
 }
 
-:root{
-
+:root {
   @apply text-[white] bg-[#000814];
 
-  font-family: "Inter", sans-serif;
-
+  font-family: 'Inter', sans-serif;
 }
-
 
 @keyframes fadeIn {
   0% {
@@ -31,6 +25,23 @@ html{
   animation-timing-function: ease-in-out;
 }
 
+.loading-toast,
+.success-toast,
+.error-toast {
+  @apply !bg-[#000814e1];
+}
+
+.loading-toast {
+  @apply !border-white !text-white !flex gap-4 pl-7;
+}
+
+.success-toast {
+  @apply !border-[#FFC300] !text-[#FFC300];
+}
+
+.error-toast {
+  @apply !border-[#e70000] !text-[#ff7474];
+}
 
 ::-webkit-scrollbar {
   width: 12px; /* Ancho de la barra lateral */
@@ -40,6 +51,72 @@ html{
   background-color: #000814; /* Color de fondo de la pista */
 }
 ::-webkit-scrollbar-thumb {
-  background-color: #FFC300; /* Color del pulgar de la barra */
+  background-color: #ffc300; /* Color del pulgar de la barra */
   border-radius: 5px; /* Radio de borde del pulgar de la barra */
+}
+
+:where([data-sonner-toast]) :where([data-icon]) {
+  @apply !static;
+}
+
+.LoadingComponentcustom-loading-spanish {
+  @apply flex justify-center items-center gap-4  -ml-[8.5rem];
+}
+
+.LoadingComponentcustom-loading-english{
+
+  @apply flex justify-center items-center gap-4  -ml-[9.5rem];
+
+}
+
+.custom-loader {
+  width: 25px;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: radial-gradient(farthest-side, #ffc300 94%, #0000) top/8px 8px
+      no-repeat,
+    conic-gradient(#0000 30%, #ffc300);
+  -webkit-mask: radial-gradient(farthest-side, #0000 calc(100% - 8px), #000 0);
+  animation: l13 1s infinite linear;
+}
+@keyframes l13 {
+  100% {
+    transform: rotate(1turn);
+  }
+}
+
+.custom-loading-spanish,
+.custom-loading-english {
+  @apply w-fit font-semibold;
+
+  font-family: sans-serif;
+  white-space: pre;
+  font-size: 17px;
+  line-height: 1.2em;
+  height: 1.2em;
+  overflow: hidden;
+}
+
+.custom-loading-spanish:before,
+.custom-loading-english:before {
+  white-space: pre;
+  display: inline-block;
+}
+
+.custom-loading-spanish:before {
+  content: 'Cargando...\A⌰argando...\A⌰⍜rgando...\A⌰⍜⏃gando...\A⌰⍜⏃⎅ando...\A⌰⍜⏃⎅⟟ndo...\A⌰⍜⏃⎅⟟⋏do...\A⌰⍜⏃⎅⟟⋏☌o...\A⌰⍜⏃⎅⟟⋏☌⟒...\A⌰⍜⏃⎅⟟⋏☌⟒⏁..\A⌰⍜⏃⎅⟟⋏☌⟒⏁⋔.\A⌰⍜⏃⎅⟟⋏☌⟒⏁⋔⏃';
+
+  animation: l39 1.5s infinite steps(12) alternate;
+}
+
+.custom-loading-english:before {
+  content: 'Loading...\A⌰oading...\A⌰⍜ading...\A⌰⍜⏃ding...\A⌰⍜⏃⎅ing...\A⌰⍜⏃⎅⟟ng...\A⌰⍜⏃⎅⟟⋏g...\A⌰⍜⏃⎅⟟⋏☌...\A⌰⍜⏃⎅⟟⋏☌⟒..\A⌰⍜⏃⎅⟟⋏☌⟒⏁.\A⌰⍜⏃⎅⟟⋏☌⟒⏁⋔';
+
+  animation: l39 1s infinite steps(11) alternate;
+}
+
+@keyframes l39 {
+  100% {
+    transform: translateY(-100%);
+  }
 }

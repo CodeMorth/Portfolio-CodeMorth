@@ -61,7 +61,10 @@ export const Loading = () => {
     // Render a full-screen div for the loading animation with background color
     <div
       ref={background} // Attach the ref to this div
-      className="h-screen w-screen fixed flex flex-col gap-4 items-center justify-center bg-[#FFC300] z-50"
+      className="h-screen w-screen fixed flex flex-col gap-4 items-center justify-center bg-[#FFC300] "
+      style={{
+        zIndex:100
+      }}
     ></div>
   )
 }

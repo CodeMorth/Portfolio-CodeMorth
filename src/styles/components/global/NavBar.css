@@ -7,7 +7,7 @@
 }
 
 .NavBar {
-  @apply fixed right-0 z-10 w-full h-auto flex justify-end;
+  @apply fixed right-0 w-full h-auto flex justify-end z-50;
 
   @screen tablet {
     @apply justify-between h-[6rem] px-10;

@@ -1,73 +1,43 @@
 'use client'
-import { Controller, useForm } from 'react-hook-form'
+
+import { useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
-import { LoginValidator } from '@/validator/SendMailValidator'
 import { postMail } from '@/services/mail.service'
-import { toast } from 'sonner'
+import { RenderInput, RenderTextarea } from '@/components/global'
+import { useLanguage } from '@/Hooks'
+import { useLoginValidator } from '@/Hooks/useLoginValidator '
+import { useEffect, useRef } from 'react'
+
+type FormData = {
+  NAME: string
+  EMAIL: string
+  MESSAGE: string
+}
 
 export const ContactHome = () => {
-  const {
-    control,
-    handleSubmit,
-    formState: { errors }
-  } = useForm({
-    resolver: zodResolver(LoginValidator),
-    defaultValues: {
-      NAME: '',
-      EMAIL: '',
-      MESSAGE: ''
-    }
-  })
+  const { loginValidator } = useLoginValidator()
+  const { languageData } = useLanguage()
 
-  const onSubmit = async (e: any) => {
-    await postMail({
-      NAME: e.NAME,
-      EMAIL: e.EMAIL,
-      MESSAGE: e.MESSAGE
-    }).catch((err) => err)
+  const { control, handleSubmit, formState: { errors } } = useForm<FormData>({ 
+    resolver: zodResolver(loginValidator), defaultValues: { NAME: '', EMAIL: '', MESSAGE: '' }})
+
+  const buttonRef = useRef<HTMLButtonElement | null>(null)
+
+  useEffect(() => {
+    buttonRef.current?.click()
+  }, [languageData])
+
+  const onSubmit = async (data: FormData) => {
+    await postMail(data).catch
   }
 
   return (
-    <div className="ContactHome">
+<div className="ContactHome">
       <form onSubmit={handleSubmit(onSubmit)}>
-        <div className="input-container">
-          <label htmlFor="name">Name</label>
-          <Controller
-            name="NAME"
-            control={control}
-            render={({ field }) => (
-              <input {...field} type="text" placeholder="Ingrese su nombre" />
-            )}
-          />
-          {errors.NAME && <p>{errors.NAME.message}</p>}
-        </div>
-        <div className="input-container">
-          <label htmlFor="email">Email</label>
-          <Controller
-            name="EMAIL"
-            control={control}
-            render={({ field }) => (
-              <input
-                {...field}
-                type="email"
-                placeholder="Ingrese su correo electrónico"
-              />
-            )}
-          />
-          {errors.EMAIL && <p>{errors.EMAIL.message}</p>}
-        </div>
-        <div className="input-container">
-          <label htmlFor="message">Message</label>
-          <Controller
-            name="MESSAGE"
-            control={control}
-            render={({ field }) => (
-              <textarea {...field} placeholder="Ingrese su mensaje" rows={3} />
-            )}
-          />
-          {errors.MESSAGE && <p>{errors.MESSAGE.message}</p>}
-        </div>
-        <button type="submit">Submit</button>
+          {RenderInput('NAME', 'text', languageData,errors,control)}
+          {RenderInput('EMAIL', 'text', languageData,errors,control)}
+          {RenderTextarea('MESSAGE', languageData,errors,control)}
+        <button ref={buttonRef} type="submit">{languageData?.contact.button}</button>
       </form>
     </div>
   )

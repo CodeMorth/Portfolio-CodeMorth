@@ -140,6 +140,31 @@
           "txtDescription": "TailWind Class Generator, generates generic classes to speed up the development process."
         }
       ]
+    },
+    "customLoading": "custom-loading-english",
+    "contact": {
+      "title": "CONTACT",
+      "form": {
+        "label": {
+          "name": "Name",
+          "email": "Email",
+          "message": "Message"
+        },
+        "placeholder": {
+          "name": "Enter your name",
+          "email": "Enter your email",
+          "message": "Enter your message"
+        },
+        "errors":{
+          "name": "Name is required",
+          "email": {
+            "invalid": "Invalid email",
+            "required": "Email is required"
+          },
+          "message": "Message is required"
+        }
+      },
+      "button": "Send"
     }
   },
   "Spanish": {
@@ -285,6 +310,31 @@
           "txtDescription": "Generador de clases de TailWind, genera clases genéricas para agilizar el proceso de desarrollo."
         }
       ]
+    },
+    "customLoading": "custom-loading-spanish",
+    "contact": {
+      "title": "CONTACT",
+      "form": {
+        "label": {
+          "name": "Nombre",
+          "email": "Correo electrónico",
+          "message": "Mensaje"
+        },
+        "placeholder": {
+          "name": "Ingrese su nombre",
+          "email": "Ingrese su correo electrónico",
+          "message": "Ingrese su mensaje"
+        },
+        "errors":{
+          "name": "El nombre es requerido",
+          "email": {
+            "invalid": "Correo electrónico inválido",
+            "required": "El correo electrónico es requerido"
+          },
+          "message": "El mensaje es requerido"
+        }
+      },
+      "button": "Enviar"
     }
   }
 }

@@ -1,5 +1,13 @@
-import React from 'react';
+'use client'
+import { useLanguage } from '@/Hooks'
 
 export const LoadingComponent = () => {
-  return <div>Cargando...</div>;
-};
+  const { languageData } = useLanguage()
+
+  return (
+    <div className={`LoadingComponent${languageData?.customLoading}`}>
+      <div className="custom-loader" />
+      <div className={languageData?.customLoading} />
+    </div>
+  )
+}

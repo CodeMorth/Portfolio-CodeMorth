@@ -8,6 +8,8 @@ export interface DataLanguageType {
   homeLanguage: HomeLanguage
   experienceLanguage: ExperienceLanguage
   projectLanguage: ProjectLanguage
+  customLoading:string
+  contact: Contact
 }
 
 export interface ExperienceLanguage {
@@ -59,4 +61,33 @@ export interface ProjectCardType {
 export interface ImagesDatum {
   src: string
   filter_shadow: string
+}
+
+interface ContactFormErrors {
+  invalid?: string;
+  required: string;
+}
+
+interface ContactForm {
+  label: {
+    name: string;
+    email: string;
+    message: string;
+  };
+  placeholder: {
+    name: string;
+    email: string;
+    message: string;
+  };
+  errors: {
+    name: string;
+    email: ContactFormErrors;
+    message: string;
+  };
+}
+
+interface Contact {
+  title: string;
+  form: ContactForm;
+  button: string;
 }

@@ -10,20 +10,17 @@ export async function POST(request: Request) {
   try {
     const { data, error } = await resend.emails.send({
       from: 'Acme <onboarding@resend.dev>',
-      to: ['kevinsalinasvd@gmail.com'],
+      to: ['codemorth@gmail.com'],
       subject: NAME,
       react: EmailTemplate({ NAME, EMAIL, MESSAGE }),
     });
 
     if (error) {
-    console.log("error",error)
-
       return Response.json({ error }, { status: 500 });
     }
 
     return Response.json(data,{status:200});
   } catch (error) {
-    console.log("error",error)
     return Response.json({ error }, { status: 500 });
   }
 }
