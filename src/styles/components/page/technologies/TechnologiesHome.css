@@ -4,6 +4,7 @@
   .front-container,
   .back-container,
   .end-container {
+
     @apply absolute flex justify-center items-center w-full pointer-events-none;
 
     @screen laptop {
@@ -14,7 +15,7 @@
   .front,
   .back,
   .end {
-    @apply flex text-5xl font-bold justify-center items-center w-full;
+    @apply flex text-5xl font-bold justify-center items-center w-full z-20;
 
     text-shadow: 0px 0px 10px black;
 
@@ -30,7 +31,7 @@
   }
 
   .front {
-    @apply text-white  justify-center items-start;
+    @apply text-white justify-center items-start z-40;
 
     @screen tablet {
       @apply !mb-[10rem] !mt-0;
@@ -44,7 +45,7 @@
   }
 
   .back {
-    @apply text-white  justify-center items-end;
+    @apply text-white justify-center items-end z-40;
 
     @screen tablet {
       @apply !mt-[53rem];
@@ -58,7 +59,7 @@
   }
 
   .end {
-    @apply text-white   justify-center items-center opacity-70;
+    @apply text-white justify-center items-center;
 
     @screen tablet {
       @apply mt-[23rem];
@@ -74,7 +75,7 @@
   }
 
   .canvas-container {
-    @apply flex justify-center items-center w-auto h-full;
+    @apply relative flex justify-center items-center w-auto h-full;
 
     @screen tablet {
       @apply pt-28;
@@ -86,16 +87,18 @@
   }
 
   .text-hover {
+    @apply flex  justify-center items-center  rounded-lg p-4;
+    transition: width 0.2s ease-in; /* Anima el crecimiento del ancho */
+
     @screen laptop {
-      @apply absolute text-white pointer-events-none z-10;
+      @apply absolute  text-white pointer-events-none z-30;
 
       border-radius: calc(0.5rem * var(--scale));
       padding-left: calc(1rem * var(--scale));
       padding-right: calc(1rem * var(--scale));
-      padding-top: calc(0.5rem * var(--scale));
-      padding-bottom: calc(0.5rem * var(--scale));
-      font-size: calc(1.3rem * var(--scale));
+      padding-top: calc(0.8rem * var(--scale));
+      padding-bottom: calc(0.8rem * var(--scale));
+      font-size: calc(5.5rem * var(--scale));
     }
   }
-
 }

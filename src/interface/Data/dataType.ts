@@ -12,9 +12,23 @@ export interface RouteSVG {
   scale: Scale;
   bgColor?: string;
   textColor?: string;
+  typeTech?:string;
 }
 
 export interface Scale {
   movile: number;
   laptop: number;
+}
+
+export interface HoveredTechDataType {
+  Front: TechData
+  Middle: TechData
+  Back: TechData
+}
+
+export interface TechData {
+  name: string | null
+  bgColor: string | null
+  textColor: string | null
+  typeTech: string | null
 }

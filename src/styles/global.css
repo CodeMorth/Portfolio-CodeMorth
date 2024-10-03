@@ -15,12 +15,6 @@ html{
 
 }
 
-.main-page {
-  animation-name: fadeIn;
-  animation-duration: 0.6s;
-  animation-timing-function: ease-in;
-  background-image: var(--bg-img);
-}
 
 @keyframes fadeIn {
   0% {
@@ -29,6 +23,54 @@ html{
   100% {
     opacity: 1;
   }
+}
+
+.main-page {
+  animation-name: fadeIn;
+  animation-duration: 0.3s;
+  animation-timing-function: ease-in-out;
+}
+
+@keyframes backInDown {
+  0% {
+    transform: translateY(-1200px) scale(0.7);
+    opacity: 0.7;
+  }
+
+  80% {
+    transform: translateY(0px) scale(0.7);
+    opacity: 0.7;
+  }
+
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.backInDown {
+  animation-name: backInDown;
+}
+
+@keyframes backOutDown {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+
+  20% {
+    transform: translateY(0px) scale(0.7);
+    opacity: 0.7;
+  }
+
+  100% {
+    transform: translateY(700px) scale(0.7);
+    opacity: 0.7;
+  }
+}
+
+.backOutDown {
+  animation-name: backOutDown;
 }
 
 ::-webkit-scrollbar {

@@ -24,8 +24,8 @@ export const responsiveSettings = {
   desktop: {
     numberOfRectangles: 52,
     radius: 270,
-    leftPosition: { x: 250, y: 300 },
-    rightPosition: { x: 540, y: 300 }
+    leftPosition: { x: 252, y: 300 },
+    rightPosition: { x: 545, y: 300 }
   }
 }
 
