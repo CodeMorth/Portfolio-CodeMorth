@@ -14,7 +14,7 @@ export const ProjectHome = () => {
         {languageData?.projectLanguage.projectCard.map( // Map over the project card data to create cards
           (data: ProjectCardType, index: number) => { // Destructure each card's data and index
             return (
-              <Navigate href={data.href} key={index}> {/* Wrap each ProjectCard in the Navigate component for routing */}
+              <a target='_blank' href={data.href} key={index}> {/* Wrap each ProjectCard in the Navigate component for routing */}
                 <ProjectCard
                   bg_color={data.bg_color}
                   border_color={data.border_color}
@@ -26,7 +26,7 @@ export const ProjectHome = () => {
                   leftOrigth={data.leftOrigth}
                   txtDescription={data.txtDescription}
                 />
-              </Navigate>
+              </a>
             )
           }
         )}
