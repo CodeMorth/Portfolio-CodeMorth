@@ -40,6 +40,7 @@ export const HomeComponent = () => {
           <motion.a
             target="_blank"
             href="https://www.linkedin.com/in/kevin-salinas-valverde-20941a194/"
+            rel="noopener noreferrer"
             whileHover={{ scale: 1.1 }} // Scale icon on hover
             whileTap={{ scale: 0.7 }} // Scale icon down on click
             className="linkedin-container"
@@ -54,6 +55,7 @@ export const HomeComponent = () => {
           <motion.a
             target="_blank"
             href="https://github.com/CodeMorth"
+            rel="noopener noreferrer"
             whileHover={{ scale: 1.1 }} // Scale icon on hover
             whileTap={{ scale: 0.7 }} // Scale icon down on click
             className="github-container"
@@ -65,7 +67,10 @@ export const HomeComponent = () => {
               src={"/technologies/GitHub.svg"}
             />
           </motion.a>
-          <motion.div
+          <motion.a
+            target="_blank"
+            href="mailto:codemorth@gmail.com"
+            rel="noopener noreferrer"
             whileHover={{ scale: 1.1 }} // Scale icon on hover
             whileTap={{ scale: 0.7 }} // Scale icon down on click
             className="gmail-container"
@@ -76,7 +81,7 @@ export const HomeComponent = () => {
               alt="Logo de Gmail"
               src={"/general/Gmail.svg"}
             />
-          </motion.div>
+          </motion.a>
         </div>
       </div>
       <div className="rigth-container">
