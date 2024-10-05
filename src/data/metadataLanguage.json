@@ -1,0 +1,46 @@
+{
+  "Spanish": {
+    "/": {
+      "title": "Inicio",
+      "description": "Inicio del portafolio de CodeMorth"
+    },
+    "/contact": {
+      "title": "Contacto",
+      "description": "Página de contacto de CodeMorth"
+    },
+    "/experience": {
+      "title": "Experiencia",
+      "description": "Página de experiencia de CodeMorth"
+    },
+    "/projects": {
+      "title": "Proyectos",
+      "description": "Página de proyectos de CodeMorth"
+    },
+    "/technologies": {
+      "title": "Tecnologías",
+      "description": "Página de tecnologías de CodeMorth"
+    }
+  },
+  "English": {
+    "/": {
+      "title": "Home",
+      "description": "Home page of CodeMorth portfolio"
+    },
+    "/contact": {
+      "title": "Contact",
+      "description": "Contact page of CodeMorth"
+    },
+    "/experience": {
+      "title": "Experience",
+      "description": "Experience page of CodeMorth"
+    },
+    "/projects": {
+      "title": "Projects",
+      "description": "Projects page of CodeMorth"
+    },
+    "/technologies": {
+      "title": "Technologies",
+      "description": "Technologies page of CodeMorth"
+    }
+  }
+}

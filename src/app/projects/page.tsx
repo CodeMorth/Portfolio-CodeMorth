@@ -1,12 +1,16 @@
 import { Container } from '@/components/global'
+import { Metadata } from '@/components/global/Metadata'
 import { ProjectHome } from '@/components/page/projects'
 import React from 'react'
 
 const page = () => {
   return (
-    <Container>
-      <ProjectHome />
-    </Container>
+    <>
+      <Metadata />
+      <Container>
+        <ProjectHome />
+      </Container>
+    </>
   )
 }
 

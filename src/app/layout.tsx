@@ -5,6 +5,12 @@ import { PrimeReactProvider } from 'primereact/api'
 import { Toaster } from 'sonner'
 import { LoadingComponent } from '@/components/sonner/LoadingComponent'
 
+export const metadata = {
+  icons: {
+    icon: '/general/CodeMorthLogo.svg',
+  },
+}
+
 interface RootLayoutProps {
   children: React.ReactNode
 }
