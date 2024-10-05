@@ -1,5 +1,4 @@
 'use client'
-
 import React, { useEffect, useRef, useState } from 'react';
 import Matter, { Engine, Render, Runner, MouseConstraint, Mouse, Composite, Composites, Query, Body } from 'matter-js';
 import { useWindowSize } from '@/Hooks'; 
@@ -14,6 +13,7 @@ import { TechData } from '@/interface/Data';
  * TechnologiesHome component: renders a canvas with dynamic physics-based interactions using Matter.js.
  * The component adapts to different screen sizes and generates a bridge with circular shapes that float and interact.
  */
+
 export const TechnologiesHome: React.FC = () => {
   // Extract the window dimensions and device type (mobile, tablet) from the custom hook.
   const { windowWidth, windowHeight, movile, tablet } = useWindowSize();
@@ -24,6 +24,13 @@ export const TechnologiesHome: React.FC = () => {
   const runnerRef = useRef<Runner | null>(null);
   const circlesRef = useRef<Body[]>([]);
 
+  // Initialize a hover sound for the canvas
+  const hoverSoundRef = useRef<HTMLAudioElement | null>(null);
+
+  useEffect(() => {
+    hoverSoundRef.current = new Audio('/sounds/Hover1.mp3'); // Charge the audio element
+    hoverSoundRef.current.volume = 0.5; // Optional: adjust the volume
+  }, []);
   // State for managing the currently hovered technology data.
   const [hoveredTechData, setHoveredTechData] = useState<HoveredTechDataType>({
     Front: { name: null, bgColor: null, textColor: null },
@@ -138,11 +145,15 @@ export const TechnologiesHome: React.FC = () => {
     });
     Composite.add(world, mouseConstraint);
     render.mouse = mouse;
+    
+    let isHovering = false; // Flag to track if the mouse is hovering over a circle
 
     // Update the hovered technology data when the mouse moves over a circle.
     Matter.Events.on(render, 'afterRender', () => {
+
       const mousePosition = { x: mouse.position.x + window.scrollX, y: mouse.position.y + window.scrollY };
       let hoveredData = { name: null, bgColor: null, textColor: null, typeTech: null } as TechData;
+
 
       // Check if the mouse is hovering over any circle.
       circlesRef.current.forEach((circle:any) => {
@@ -150,6 +161,16 @@ export const TechnologiesHome: React.FC = () => {
           hoveredData = { name: circle.name, bgColor: circle.bgColor, textColor: circle.textColor, typeTech: circle.typeTech };
         }
       });
+
+      if (hoveredData.name && !isHovering) {
+        isHovering = true; // Change the hover flag when the mouse is hovering over a circle
+        if (hoverSoundRef.current) {
+          hoverSoundRef.current.currentTime = 0; // Reset the sound's current time
+          hoverSoundRef.current.play(); // Play the sound
+        }
+      } else if (!hoveredData.name && isHovering) {
+        isHovering = false; // Reset the hover flag when the mouse is not hovering over a circle
+      }
 
       // Update the state based on the hovered circle.
       setHoveredTechData((prev) => ({

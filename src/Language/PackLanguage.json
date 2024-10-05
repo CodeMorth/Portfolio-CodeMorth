@@ -137,7 +137,7 @@
             }
           ],
           "leftOrigth": "right",
-          "txtDescription": "TailWind Class Generator, generates generic classes to speed up the development process."
+          "txtDescription": "A task management app with custom workspaces, flexible lists, and drag-and-drop functionality."
         }
       ]
     },
@@ -155,7 +155,7 @@
           "email": "Enter your email",
           "message": "Enter your message"
         },
-        "errors":{
+        "errors": {
           "name": "Name is required",
           "email": {
             "invalid": "Invalid email",
@@ -165,6 +165,12 @@
         }
       },
       "button": "Send"
+    },
+    "toastData": {
+      "success": "Message sent successfully",
+      "error404": "Failed to send the message",
+      "errorMessage": "Network error. Please check your connection",
+      "errorReturn": "Failed to send the message"
     }
   },
   "Spanish": {
@@ -307,7 +313,7 @@
             }
           ],
           "leftOrigth": "right",
-          "txtDescription": "Generador de clases de TailWind, genera clases genéricas para agilizar el proceso de desarrollo."
+          "txtDescription": "Un aplicación de gestión de tareas con workspaces personalizados, listas flexibles y funcionalidad de arrastrar y soltar."
         }
       ]
     },
@@ -325,7 +331,7 @@
           "email": "Ingrese su correo electrónico",
           "message": "Ingrese su mensaje"
         },
-        "errors":{
+        "errors": {
           "name": "El nombre es requerido",
           "email": {
             "invalid": "Correo electrónico inválido",
@@ -335,6 +341,12 @@
         }
       },
       "button": "Enviar"
+    },
+    "toastData": {
+      "success": "Mensaje enviado con éxito",
+      "error404": "No se pudo enviar el mensaje",
+      "errorMessage": "Error de red. Verifica tu conexión",
+      "errorReturn": "No se pudo enviar el mensaje"
     }
   }
 }

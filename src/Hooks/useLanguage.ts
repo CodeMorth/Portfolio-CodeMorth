@@ -1,32 +1,34 @@
-import { useContext } from 'react'; // Importing useContext hook from React for accessing context
-import { LanguageContext } from '@/Context/LanguageProvider'; // Importing LanguageContext to access language state
-import PackLanguage from '@/Language/PackLanguage.json'; // Importing language pack JSON file containing translations
-import { DataLanguageType } from '@/interface/Language'; // Importing TypeScript type for language data
+// Import necessary hooks and context providers from React and your application
+import { useContext } from 'react'; // Import the useContext hook for accessing context values
+import { LanguageContext } from '@/Context/LanguageProvider'; // Import the LanguageContext to access language settings
+import PackLanguage from '@/Language/PackLanguage.json'; // Import language pack data from a JSON file
+import { DataLanguageType } from '@/interface/Language'; // Import the DataLanguageType for type safety
 
-// Custom hook for managing language settings in the application
+// Custom hook to manage language settings in the application
 export const useLanguage = () => {
-  // Accessing the current language type and the function to set the language type from LanguageContext
+  // Destructure the context to get the current language type and the function to change it
   const { typeLanguage, settypeLanguage } = useContext(LanguageContext);
 
-  let languageData; // Variable to hold the language data based on the current language type
+  // Initialize languageData with a default value (e.g., Spanish)
+  let languageData: DataLanguageType = PackLanguage.Spanish as DataLanguageType; 
 
-  // Conditional statement to determine which language data to use based on the typeLanguage boolean
+  // Set languageData based on the value of typeLanguage
   if (typeLanguage === true) {
-    // If typeLanguage is true, use Spanish language data
-    languageData = PackLanguage.Spanish as DataLanguageType; 
+    // If typeLanguage is true, set languageData to Spanish
+    languageData = PackLanguage.Spanish as DataLanguageType;
   }
 
   if (typeLanguage === false) {
-    // If typeLanguage is false, use English language data
-    languageData = PackLanguage.English as DataLanguageType; 
+    // If typeLanguage is false, set languageData to English
+    languageData = PackLanguage.English as DataLanguageType;
   }
 
-  // Function to toggle the current language type
+  // Function to toggle the current language setting
   const changeLanguage = () => {
-    // Updating typeLanguage by toggling its boolean value
-    settypeLanguage((prev: boolean) => !prev); 
+    // Toggle the typeLanguage boolean value to switch languages
+    settypeLanguage((prev: boolean) => !prev);
   };
 
-  // Returning an object containing the current language type, the changeLanguage function, and the current language data
+  // Return the current language type, changeLanguage function, and language data
   return { typeLanguage, changeLanguage, languageData }; 
 };

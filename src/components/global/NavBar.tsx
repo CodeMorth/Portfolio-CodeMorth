@@ -20,6 +20,9 @@ export const NavBar = () => {
   // Extracting loading state from the navigation context
   const { loading } = useNavigationContext()
 
+  // Audio player for language change
+  const audio = typeof window !== 'undefined' ? new Audio('/sounds/ChangeLanguage.mp3') : null;
+
   // useEffect to close the navbar when loading is not in the loading state
   useEffect(() => {
     loading === LOADING_STATES.LOADING ? '' : setopenNavBar(false)
@@ -56,7 +59,8 @@ export const NavBar = () => {
                 className="switch"
                 data-on={dataNavBar.isOn} // Indicates whether the switch is on
                 onClick={() => {
-                  editBoolean('isOn', 'opposite'), changeLanguage() // Toggle language on switch click
+                  editBoolean('isOn', 'opposite'), changeLanguage(),
+                  audio?audio.play():null // Toggle language on switch click
                 }}
               >
                 <motion.div

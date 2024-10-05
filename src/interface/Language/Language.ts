@@ -9,7 +9,8 @@ export interface DataLanguageType {
   experienceLanguage: ExperienceLanguage
   projectLanguage: ProjectLanguage
   customLoading:string
-  contact: Contact
+  contact: Contact,
+  toastData:ToastData
 }
 
 export interface ExperienceLanguage {
@@ -70,7 +71,7 @@ interface ContactFormErrors {
 
 interface ContactForm {
   label: {
-    name: string;
+    name: keyof FormDataMail;
     email: string;
     message: string;
   };
@@ -90,4 +91,17 @@ interface Contact {
   title: string;
   form: ContactForm;
   button: string;
+}
+
+export interface FormDataMail {
+  NAME: string;
+  EMAIL: string;
+  MESSAGE: string;
+};
+
+interface ToastData {
+  success: string;
+  error404: string;
+  errorMessage: string;
+  errorReturn: string;
 }

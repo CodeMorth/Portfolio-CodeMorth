@@ -1,14 +1,31 @@
-"use client"
+'use client'
 import { lineDataType } from '@/interface/NavBar'
 import { useState } from 'react'
+import { useLanguage } from './useLanguage'
+import { usePathname } from 'next/navigation'
 
 export const useDataNavBar = () => {
+  const { languageData } = useLanguage()
+  const path = usePathname()
+
+  const dataNavBarInitial = languageData.navbarLanguage.find(
+    (data) => data.ref === path
+  )
+
   // State to manage the navigation bar data
   const [dataNavBar, setDataNavBar] = useState({
     isOn: false, // Boolean indicating if the navigation bar is active
     linePresioned: false, // Boolean indicating if a line has been pressed
-    lineData: { leftLine: 3, widthLine: 9.3, rotateLine: 3 }, // Data related to line positioning and styling
-    lineBackup: { leftLine: 3, widthLine: 9.3, rotateLine: 3 } // Backup of the line data for restoration
+    lineData: {
+      leftLine: dataNavBarInitial?.leftLine,
+      widthLine: dataNavBarInitial?.widthLine,
+      rotateLine: dataNavBarInitial?.rotateLine
+    }, // Data related to line positioning and styling
+    lineBackup: {
+      leftLine: dataNavBarInitial?.leftLine,
+      widthLine: dataNavBarInitial?.widthLine,
+      rotateLine: dataNavBarInitial?.rotateLine
+    } // Backup of the line data for restoration
   })
 
   // Function to toggle boolean values or set them to true/false
@@ -30,7 +47,8 @@ export const useDataNavBar = () => {
     // If the key is 'dataWithBackup', restore the line data from the backup
     if (key === 'dataWithBackup') {
       setDataNavBar((prev) => ({ ...prev, lineData: { ...prev.lineBackup } }))
-    } else if (data) { // If new data is provided, update the specified line data
+    } else if (data) {
+      // If new data is provided, update the specified line data
       setDataNavBar((prev) => ({ ...prev, [key]: { ...data } }))
     }
   }
