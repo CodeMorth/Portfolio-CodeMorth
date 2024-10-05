@@ -6,10 +6,13 @@ import { NavbarLanguageType } from '@/interface/Language' // Type definition for
 import { Navigate } from '@/components/global' // Importing the Navigate component for navigation links
 import { LOADING_STATES, useNavigationContext } from '@/Context' // Importing loading states and navigation context
 import { useEffect } from 'react'
+import { usePathname } from "next/navigation";
 
 export const NavBar = () => {
   // Extracting language data and changeLanguage function from the language hook
   const { languageData, changeLanguage } = useLanguage()
+
+  const pathname = usePathname()
 
   // Extracting openNavBar state and function to toggle it from the global view hook
   const { openNavBar, setopenNavBar, chageOpenNavBar } = ViewNavBarGlobal()
@@ -20,8 +23,20 @@ export const NavBar = () => {
   // Extracting loading state from the navigation context
   const { loading } = useNavigationContext()
 
+  // Check if we are in the browser environment
+  const isBrowser = typeof window !== 'undefined';
+
   // Audio player for language change
-  const audio = typeof window !== 'undefined' ? new Audio('/sounds/ChangeLanguage.mp3') : null;
+  const changeLanguageAudio = isBrowser ? new Audio('/sounds/ChangeLanguage.mp3') : null;
+
+  // Audio player for hover
+  const hoverAudio = isBrowser ? new Audio('/sounds/Hover5.mp3') : null;
+
+  // Audio player for click
+  const clickAudio = isBrowser ? new Audio('/sounds/Click1.mp3') : null;
+  
+  // Modify the volume of the clickAudio to 0.35
+  clickAudio ? clickAudio.volume = 0.35 : null;
 
   // useEffect to close the navbar when loading is not in the loading state
   useEffect(() => {
@@ -60,7 +75,7 @@ export const NavBar = () => {
                 data-on={dataNavBar.isOn} // Indicates whether the switch is on
                 onClick={() => {
                   editBoolean('isOn', 'opposite'), changeLanguage(),
-                  audio?audio.play():null // Toggle language on switch click
+                  changeLanguageAudio?changeLanguageAudio.play():null // Toggle language on switch click
                 }}
               >
                 <motion.div
@@ -99,9 +114,10 @@ export const NavBar = () => {
                   key={index}
                   onClick={() => {
                     editLineData('lineBackup', data), // Backup current line data
-                      editLineData('lineData', data) // Set current line data
+                      editLineData('lineData', data), // Set current line data
+                      clickAudio?clickAudio.play():null
                   }}
-                  onMouseEnter={() => editLineData('lineData', data)} // Highlight link on mouse enter
+                  onMouseEnter={() => {editLineData('lineData', data), hoverAudio?hoverAudio.play():null}} // Highlight link on mouse enter
                   onMouseLeave={() => (
                     editLineData('dataWithBackup'), // Restore previous line data
                     editBoolean('linePresioned', 'false') // Update pressed state
@@ -110,7 +126,7 @@ export const NavBar = () => {
                   onMouseUp={() => editBoolean('linePresioned', 'false')} // Reset pressed state on mouse up
                   href={data?.ref}
                 >
-                  {data?.text}
+                  <span className={`${ pathname === data.ref? "text-[#FFC300] tablet:text-white":"" }`}>{data?.text}</span>
                 </Navigate>
               )
             )}

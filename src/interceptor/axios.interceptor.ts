@@ -105,7 +105,7 @@ export const RequestWithToast = (
     error: (error) => {
       return error.message // Return the error message for notification
     },
-    duration: 4000 // Duration for the toast notification in milliseconds
+    duration: 2500 // Duration for the toast notification in milliseconds
   })
 
   return promise // Return the promise for further handling if needed

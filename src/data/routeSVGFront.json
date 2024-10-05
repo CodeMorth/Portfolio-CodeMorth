@@ -111,7 +111,7 @@
       "name": "Postman",
       "bgColor": "rgba(255, 100, 0, 0.8)",
       "textColor": "#fff",
-      "scale": { "movile": 0.8, "laptop": 0.42 },
+      "scale": { "movile": 0.55, "laptop": 0.42 },
       "typeTech": "Middle"
     },
     {
@@ -169,7 +169,7 @@
       "name": "MySql",
       "bgColor": "rgba(0, 84, 107, 0.8)",
       "textColor": "#fff",
-      "scale": { "movile": 0.85, "laptop": 0.6 },
+      "scale": { "movile": 0.8, "laptop": 0.6 },
       "typeTech": "Back"
     },
     {

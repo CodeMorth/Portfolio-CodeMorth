@@ -39,8 +39,8 @@
     ],
     "homeLanguage": {
       "h1": "Developer",
-      "span1": "Front",
-      "span2": "End",
+      "span1": "Full",
+      "span2": "Stack",
       "p": "I like to be detail-oriented in the projects I develop, striving to deliver the best possible product."
     },
     "experienceLanguage": {
@@ -48,17 +48,17 @@
       "experienceCardLanguage": [
         {
           "title": "Freelancer",
-          "subtitle": "January 2023-2024",
+          "subtitle": "January 2022 - Present",
           "src": "/general/FreelanceLogoBgYellow.svg",
           "alt": "Logo of CodeMorth Freelance",
-          "description": "I have worked independently in web development, collaborating with clients in my local area. Through this experience, I have gradually acquired knowledge."
+          "description": "I have worked independently on web development for clients around the world, acquiring and perfecting knowledge that allows me to deliver high-quality software solutions, tailored to each project."
         },
         {
           "title": "Diurvan Consultants",
-          "subtitle": "January 2023-Present",
+          "subtitle": "January 2023 - Present",
           "src": "/general/DiurvanLogo.svg",
           "alt": "Logo of Diurvan Consultants",
-          "description": "As a Front-End Developer at Diurvan Consultants, I address client requirements on websites. I use TypeScript, React.js, and CSS, collaborating on projects from start to final delivery, employing Git and GitHub for collaboration."
+          "description": "As a Full-Stack Developer at Diurvan Consultores, I solve client requirements on websites. I use TypeScript, Next.js and Express, collaborating on projects from start to final delivery, using GitHub for collaboration."
         }
       ]
     },
@@ -99,7 +99,7 @@
           "txtDescription": "TailWind Class Generator, generates generic classes to speed up the development process."
         },
         {
-          "href": "https://google.com",
+          "href": "https://dev-friends.vercel.app/",
           "bg_color": "rgba(255, 82, 176, 0.03)",
           "border_color": "#FF52B0",
           "font_color": "#FF52B0",
@@ -213,8 +213,8 @@
     ],
     "homeLanguage": {
       "h1": "Desarrollador",
-      "span1": "Front",
-      "span2": "End",
+      "span1": "Full",
+      "span2": "Stack",
       "p": "Me gusta ser detallista en los proyectos que desarrollo, buscando entregar el mejor producto posible."
     },
     "experienceLanguage": {
@@ -225,14 +225,14 @@
           "subtitle": "Enero 2023-2024",
           "src": "/general/FreelanceLogoBgYellow.svg",
           "alt": "Logo de CodeMorth Freelance",
-          "description": "He trabajado de forma autónoma en el desarrollo de páginas web, colaborando con clientes ubicados en mi área local. A través de esta experiencia, he ido adquiriendo conocimientos gradualmente."
+          "description": "He trabajado de manera independiente en el desarrollo de páginas web para clientes de todo el mundo, adquiriendo y perfeccionando conocimientos que me permiten entregar soluciones de software de alta calidad, adaptadas a cada proyecto."
         },
         {
           "title": "Diurvan Consultores",
           "subtitle": "Enero 2023-Actualidad",
           "src": "general/DiurvanLogo.svg",
           "alt": "Logo de la consultora Diurvan",
-          "description": "Como Programador Front-End en Diurvan Consultores, resuelvo requerimientos de clientes en sitios web. Uso TypeScript, React.js y CSS, colaborando en proyectos desde inicio hasta entrega final, empleando Git y GitHub para colaboración."
+          "description": "Como Programador Full-Stack en Diurvan Consultores, resuelvo requerimientos de clientes en sitios web. Uso TypeScript, Next.js y Express, colaborando en proyectos desde inicio hasta entrega final, empleando GitHub para colaboración."
         }
       ]
     },
@@ -274,7 +274,7 @@
           "txtDescription": "Generador de clases de TailWind, genera clases genéricas para agilizar el proceso de desarrollo."
         },
         {
-          "href": "https://google.com",
+          "href": "https://dev-friends.vercel.app/",
 
           "bg_color": "rgba(255, 82, 176, 0.03)",
           "border_color": "#FF52B0",

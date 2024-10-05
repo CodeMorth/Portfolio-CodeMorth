@@ -112,7 +112,7 @@
     }
 
     h1 {
-      @apply font-semibold text-[2rem];
+      @apply font-semibold text-[3.1rem];
 
       @screen tablet {
         @apply text-[4rem];
@@ -128,7 +128,7 @@
     }
 
     p {
-      @apply text-[1rem];
+      @apply text-[1.2rem];
 
       @screen tablet {
         @apply text-[1.4rem];

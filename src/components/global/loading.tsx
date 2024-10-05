@@ -6,7 +6,13 @@ import gsap from 'gsap' // Importing GSAP for animations
 export const Loading = () => {
   // Destructure loading state and setLoading function from the navigation context
   const { loading, setLoading } = useNavigationContext()
-  
+
+  // Check if we are in the browser environment
+  const isBrowser = typeof window !== 'undefined'
+
+  // Audio player for transitions Out
+  const transitionOut = isBrowser ? new Audio('/sounds/Transition1.mp3') : null
+
   // Create a reference for the background div
   const background = useRef<HTMLDivElement>(null)
 
@@ -50,11 +56,18 @@ export const Loading = () => {
   // useEffect to handle loading state changes
   useEffect(() => {
     // Call the _exit function when loading is INIT or LOADING
-    if (loading === LOADING_STATES.INIT) _exit()
+    if (loading === LOADING_STATES.INIT) {
+      _exit()
+    }
     // Call the _enter function when loading is LOADED
-    if (loading === LOADING_STATES.LOADED) _enter()
+    if (loading === LOADING_STATES.LOADED) {
+      _enter()
+      transitionOut ? transitionOut.play() : null //Play the transition sound
+    }
     // Call the _exit function again when loading is LOADING
-    if (loading === LOADING_STATES.LOADING) _exit()
+    if (loading === LOADING_STATES.LOADING) {
+      _exit()
+    }
   }, [loading]) // Dependency on loading state
 
   return (
@@ -63,7 +76,7 @@ export const Loading = () => {
       ref={background} // Attach the ref to this div
       className="h-screen w-screen fixed flex flex-col gap-4 items-center justify-center bg-[#FFC300] "
       style={{
-        zIndex:100
+        zIndex: 100
       }}
     ></div>
   )
