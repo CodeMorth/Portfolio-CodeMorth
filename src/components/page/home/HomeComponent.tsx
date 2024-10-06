@@ -69,7 +69,7 @@ export const HomeComponent = () => {
           <motion.a
             target="_blank"
             href={languageData.homeLanguage.urlCV}
-            download="Kevin Salinas CV"
+            download={true}
             rel="noopener noreferrer"
             whileHover={{ scale: 1.1 }} // Scale icon on hover
             whileTap={{ scale: 0.7 }} // Scale icon down on click
