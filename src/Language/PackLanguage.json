@@ -41,7 +41,8 @@
       "h1": "Developer",
       "span1": "Full",
       "span2": "Stack",
-      "p": "I like to be detail-oriented in the projects I develop, striving to deliver the best possible product."
+      "p": "I like to be detail-oriented in the projects I develop, striving to deliver the best possible product.",
+      "urlCV": "/cv/CVEnglish.pdf"
     },
     "experienceLanguage": {
       "title": "EXPERIENCE",
@@ -215,7 +216,8 @@
       "h1": "Desarrollador",
       "span1": "Full",
       "span2": "Stack",
-      "p": "Me gusta ser detallista en los proyectos que desarrollo, buscando entregar el mejor producto posible."
+      "p": "Me gusta ser detallista en los proyectos que desarrollo, buscando entregar el mejor producto posible.",
+      "urlCV": "/cv/CVSpanish.pdf"
     },
     "experienceLanguage": {
       "title": "EXPERIENCIA",

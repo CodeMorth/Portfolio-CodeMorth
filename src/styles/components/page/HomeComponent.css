@@ -88,7 +88,7 @@
   }
 
   .gmail-container {
-    @apply visible;
+    @apply w-[12.5%];
 
     @screen tablet {
       @apply visible;

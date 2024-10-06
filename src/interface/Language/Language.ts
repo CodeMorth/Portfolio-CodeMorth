@@ -31,6 +31,7 @@ export interface HomeLanguage {
   span1: string
   span2: string
   p: string
+  urlCV: string
 }
 
 export interface NavbarLanguageType {
