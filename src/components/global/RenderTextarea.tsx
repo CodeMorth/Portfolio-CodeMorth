@@ -45,7 +45,7 @@ export const RenderTextarea = (
               placeholder={languageData?.contact.form.placeholder[mappedName]}
               rows={3}
             />
-            {errors?.[name] ? <p>{errors[name]?.message}</p> : null}
+            {errors?.[name] ? <p className='text-red-500'>{errors[name]?.message}</p> : null}
             </>
         )}
       />
